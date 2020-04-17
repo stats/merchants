@@ -1,0 +1,28 @@
+<p>craft-detail works!</p>
+
+<div class="craft">
+  <app-title-description title="" type="" key="" description=""></app-title-description>
+  <div class="requires">
+    <h3>Required Items</h3>
+    <div class="required" ngFor="let item of requirement">
+      <app-item-quantity name="item.name" key="item.key" description="item.description" quantity="item.quanity"></app-item-quantity>
+    </div>
+  </div>
+  <div class="consumes">
+    <h3>Consumed Items</h3>
+    <div class="consumes" ngFor="let item of requirement">
+      <app-item-quantity name="" key="" description="" quantity=""></app-item-quantity>
+    </div>
+  </div>
+  <div class="rewards">
+    <h3>Reward</h3>
+    <ul>
+      <li>Item ##</li>
+    </ul>
+  </div>
+  <div class="actions">
+    <ul>
+      <li>Craft Item</li>
+    </ul>
+  </div>
+</div>

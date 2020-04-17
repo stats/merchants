@@ -1,0 +1,18 @@
+<p>hero-list works!</p>
+
+<div class="heroes">
+  <div *ngFor="let hero of heroService.getHeroes()">
+    {{hero.name}}
+    <button type="button" (click)="selectHero(hero.name)">Select Hero</button>
+  </div>
+</div>
+
+<form (submit)="addHero()" novalidate>
+  <div class="row">
+    <div class="input-field">
+      <input [(ngModel)]="name" name="addNew" placeholder="Hero's Name" type="text">
+      <label for="addNew">Hero's Name</label>
+    </div>
+    <button type="submit" class="btn">Create Hero</button>
+  </div>
+</form>
