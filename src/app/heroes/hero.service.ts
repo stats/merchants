@@ -8,6 +8,8 @@ import { Quest } from '../quests/shared/quest.model';
 import { Craft } from '../crafts/shared/craft.model';
 import { ItemQuantity } from '../items/shared/item-quantity.model';
 
+import GameData from '../../data/GameData.json';
+
 @Injectable()
 export class HeroService {
 
@@ -17,10 +19,13 @@ export class HeroService {
 
   constructor() {
     this.heroes = JSON.parse(localStorage.getItem('heroes'));
+    console.log(this.heroes);
     if(this.heroes == null) {
       this.heroes = [];
     }
     this.currentHero$ = new BehaviorSubject<Hero>(JSON.parse(localStorage.getItem('currentHero')));
+
+    console.log(GameData);
   }
 
   createHero(name: string) {

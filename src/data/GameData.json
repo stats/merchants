@@ -1,0 +1,696 @@
+{
+	"sheets": [
+		{
+			"name": "Locations",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "key",
+					"display": null
+				},
+				{
+					"typeStr": "1",
+					"name": "name"
+				},
+				{
+					"typeStr": "1",
+					"name": "description",
+					"display": null
+				},
+				{
+					"typeStr": "6:Locations",
+					"name": "parentLocationKey",
+					"opt": true
+				},
+				{
+					"typeStr": "2",
+					"name": "unlocked",
+					"display": null
+				},
+				{
+					"typeStr": "8",
+					"name": "sellsItemKeys",
+					"display": null
+				},
+				{
+					"typeStr": "8",
+					"name": "buysItemKeys",
+					"display": null
+				},
+				{
+					"typeStr": "4",
+					"name": "buysMarkup"
+				},
+				{
+					"typeStr": "4",
+					"name": "sellsMarkup"
+				}
+			],
+			"lines": [
+				{
+					"name": "Pittmedden Region",
+					"description": "A grass and forested area with a small hilled section in the center of the forest. This region boast one small frontier town.",
+					"key": "pittmedden",
+					"unlocked": true,
+					"sellsItemKeys": [],
+					"buysItemKeys": [],
+					"buysMarkup": 1,
+					"sellsMarkup": 1
+				},
+				{
+					"key": "pittmedden_town",
+					"name": "Pittmedden Town",
+					"description": "A somewhat thriving frontier town that boasts basic amenities required by the adventuring merchant",
+					"unlocked": true,
+					"sellsItemKeys": [],
+					"buysItemKeys": [],
+					"buysMarkup": 1,
+					"sellsMarkup": 1,
+					"parentLocationKey": "pittmedden"
+				},
+				{
+					"key": "pittmedden_generalstore",
+					"name": "Pittmedden General Store",
+					"description": "",
+					"unlocked": false,
+					"sellsItemKeys": [
+						{
+							"key": "pelt_small"
+						},
+						{
+							"key": "pelt_medium"
+						},
+						{
+							"key": "sewing_needle"
+						},
+						{
+							"key": "thread"
+						},
+						{
+							"key": "health_potion_small"
+						}
+					],
+					"buysItemKeys": [
+						{
+							"key": "redcap_mushroom_small"
+						},
+						{
+							"key": "pelt_small"
+						},
+						{
+							"key": "pelt_medium"
+						}
+					],
+					"buysMarkup": 0.5,
+					"sellsMarkup": 1
+				},
+				{
+					"key": "pittmedden_well",
+					"name": "Pittmedden Well",
+					"description": "",
+					"unlocked": false,
+					"sellsItemKeys": [],
+					"buysItemKeys": [],
+					"buysMarkup": 0,
+					"sellsMarkup": 0
+				},
+				{
+					"key": "pittmedden_blacksmith",
+					"name": "Pittmedden Blacksmith",
+					"description": "",
+					"unlocked": false,
+					"sellsItemKeys": [],
+					"buysItemKeys": [],
+					"buysMarkup": 0,
+					"sellsMarkup": 0
+				},
+				{
+					"key": "pittmedden_forest",
+					"name": "Pittmedden Forest",
+					"description": "",
+					"unlocked": false,
+					"sellsItemKeys": [],
+					"buysItemKeys": [],
+					"buysMarkup": 0,
+					"sellsMarkup": 0
+				},
+				{
+					"key": "pittmedden_alchemist",
+					"name": "Pittmedden Alchemist",
+					"description": "",
+					"unlocked": false,
+					"sellsItemKeys": [],
+					"buysItemKeys": [],
+					"buysMarkup": 0,
+					"sellsMarkup": 0
+				},
+				{
+					"key": "pittmedden_mill",
+					"name": "Pittmedden Lumber Mill",
+					"description": "",
+					"unlocked": false,
+					"sellsItemKeys": [],
+					"buysItemKeys": [],
+					"buysMarkup": 0,
+					"sellsMarkup": 0
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "Locations@sellsItemKeys",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "6:Items",
+					"name": "key",
+					"display": null
+				}
+			]
+		},
+		{
+			"name": "Locations@buysItemKeys",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "6:Items",
+					"name": "key",
+					"display": null
+				}
+			]
+		},
+		{
+			"name": "Items",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "key",
+					"display": null
+				},
+				{
+					"typeStr": "1",
+					"name": "name",
+					"display": null
+				},
+				{
+					"typeStr": "1",
+					"name": "description",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "cost"
+				}
+			],
+			"lines": [
+				{
+					"key": "redcap_mushroom_small",
+					"name": "Small Redcap Mushroom",
+					"description": "A small mushroom with a red cap",
+					"cost": 5
+				},
+				{
+					"key": "pelt_small",
+					"name": "Small Pelt",
+					"description": "A small animal pelt",
+					"cost": 5
+				},
+				{
+					"key": "pelt_medium",
+					"name": "Medium Pelt",
+					"description": "A medium sized animal pelt",
+					"cost": 15
+				},
+				{
+					"key": "sewing_needle",
+					"name": "Sewing Needle",
+					"description": "A small sewing needle",
+					"cost": 1
+				},
+				{
+					"key": "thread",
+					"name": "Thread",
+					"description": "A small spool of thread",
+					"cost": 1
+				},
+				{
+					"key": "health_potion_small",
+					"name": "Small Health Potion",
+					"description": "A small potion of healing",
+					"cost": 50
+				},
+				{
+					"key": "mortar_pestel",
+					"name": "Mortar and pestal",
+					"description": "Device used for grinding ingredients into a powder",
+					"cost": 10
+				},
+				{
+					"key": "glass_vial",
+					"name": "Glass Vial",
+					"description": "A small glass vial",
+					"cost": 1
+				},
+				{
+					"key": "water_bucket",
+					"name": "Bucket of Water",
+					"description": "A bucket of water, drawn from a common water source",
+					"cost": 1
+				},
+				{
+					"key": "smith_hammer",
+					"name": "Smith's Hammer",
+					"description": "A common hammer used by metal smiths",
+					"cost": 10
+				},
+				{
+					"key": "iron_lump",
+					"name": "Lump of Iron",
+					"description": "A small lump of iron ore",
+					"cost": 5
+				},
+				{
+					"key": "horse_shoe",
+					"name": "Horse Shoe",
+					"description": "A shoe for a horse",
+					"cost": 2
+				},
+				{
+					"key": "dagger_iron_poor",
+					"name": "Poor Quality Iron Dagger",
+					"description": "Not much more than a lump of iron made a little pit pointy",
+					"cost": 6
+				},
+				{
+					"key": "short_sword_iron_poor",
+					"name": "Poor Quality Iron Short Sword",
+					"description": "An arms length sword of iron, poor quality with not much of an edge",
+					"cost": 15
+				},
+				{
+					"key": "shield_round_iron_poor",
+					"name": "Poor Quality Iron Banded Round Shield",
+					"description": "Primarily a wooden shield with rough iron bands pounded across to hold it together",
+					"cost": 10
+				},
+				{
+					"key": "axe_lumber_poor",
+					"name": "Poor Quality Lumber Axe",
+					"description": "An axe designed for chopping down trees, not very durable",
+					"cost": 10
+				},
+				{
+					"key": "log_soft",
+					"name": "Softwood Log",
+					"description": "A log earned by chopping down an evergreen tree",
+					"cost": 1
+				},
+				{
+					"key": "log_hardwood",
+					"name": "Hardwood Log",
+					"description": "A log earned by chopping down a deciduous tree",
+					"cost": 2
+				},
+				{
+					"key": "handle_wood_soft",
+					"name": "Soft Wooden Rod",
+					"description": "A rod made from a softwood log, not the best quality",
+					"cost": 2
+				},
+				{
+					"key": "handle_wood_hard",
+					"name": "Hard Wooden Rod",
+					"description": "A rod made from a hardwood log, more durable than a softwood variant",
+					"cost": 3
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "Crafts",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "key",
+					"display": null
+				},
+				{
+					"typeStr": "1",
+					"name": "name",
+					"display": null
+				},
+				{
+					"typeStr": "1",
+					"name": "description",
+					"display": null
+				},
+				{
+					"typeStr": "2",
+					"name": "unlocked",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "requiredGold"
+				},
+				{
+					"typeStr": "8",
+					"name": "requiredItems",
+					"display": null
+				},
+				{
+					"typeStr": "8",
+					"name": "consumedItems",
+					"display": null
+				},
+				{
+					"typeStr": "8",
+					"name": "rewardedItems",
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"key": "horse_shoe",
+					"name": "Horse Shoe",
+					"description": "Create enough shoes to outfit a horse",
+					"unlocked": false,
+					"requiredGold": 0,
+					"requiredItems": [
+						{
+							"key": "smith_hammer",
+							"quantity": 1
+						}
+					],
+					"consumedItems": [
+						{
+							"key": "iron_lump",
+							"quantity": 1
+						}
+					],
+					"rewardedItems": [
+						{
+							"key": "horse_shoe",
+							"quantity": 4
+						}
+					]
+				},
+				{
+					"key": "healing_potion_small",
+					"name": "Small Healing Potion",
+					"description": "Create a small healing potion",
+					"unlocked": false,
+					"requiredGold": 0,
+					"requiredItems": [
+						{
+							"key": "mortar_pestel",
+							"quantity": 1
+						}
+					],
+					"consumedItems": [
+						{
+							"key": "redcap_mushroom_small",
+							"quantity": 2
+						},
+						{
+							"key": "water_bucket",
+							"quantity": 1
+						},
+						{
+							"key": "glass_vial",
+							"quantity": 1
+						}
+					],
+					"rewardedItems": [
+						{
+							"key": "health_potion_small",
+							"quantity": 1
+						}
+					]
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "Quests",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "key",
+					"display": null
+				},
+				{
+					"typeStr": "1",
+					"name": "name",
+					"display": null
+				},
+				{
+					"typeStr": "1",
+					"name": "description",
+					"display": null
+				},
+				{
+					"typeStr": "6:Locations",
+					"name": "parentLocationKey",
+					"display": null
+				},
+				{
+					"typeStr": "1",
+					"name": "completeText",
+					"display": null
+				},
+				{
+					"typeStr": "2",
+					"name": "repeatable"
+				},
+				{
+					"typeStr": "2",
+					"name": "unlocked",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "requiredGold"
+				},
+				{
+					"typeStr": "8",
+					"name": "requiredItems",
+					"display": null
+				},
+				{
+					"typeStr": "8",
+					"name": "consumedItems",
+					"display": null
+				},
+				{
+					"typeStr": "8",
+					"name": "rewardedItems",
+					"display": null
+				},
+				{
+					"typeStr": "8",
+					"name": "unlockQuestKeys"
+				},
+				{
+					"typeStr": "8",
+					"name": "unlockLocationKeys",
+					"display": null
+				},
+				{
+					"typeStr": "8",
+					"name": "unlockCraftKeys",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "rewardedGold"
+				}
+			],
+			"lines": [
+				{
+					"key": "pittmedden_explore_001",
+					"name": "Explore Pittmedden",
+					"description": "After entering Pittmedden town the first task is to start exploring and learn what services exist in the town",
+					"parentLocationKey": "pittmedden",
+					"repeatable": false,
+					"unlocked": true,
+					"requiredGold": 0,
+					"requiredItems": [],
+					"consumedItems": [],
+					"rewardedItems": [],
+					"unlockLocationKeys": [
+						{
+							"key": "pittmedden_generalstore"
+						},
+						{
+							"key": "pittmedden_well"
+						}
+					],
+					"unlockQuestKeys": [
+						{
+							"key": "pittmedden_explore_002"
+						}
+					],
+					"unlockCraftKeys": [],
+					"rewardedGold": 0,
+					"completeText": "You have found the General Store and the Central Square Well"
+				},
+				{
+					"key": "pittmedden_explore_002",
+					"name": "",
+					"description": "",
+					"parentLocationKey": "pittmedden",
+					"repeatable": false,
+					"unlocked": false,
+					"requiredGold": 0,
+					"requiredItems": [],
+					"consumedItems": [],
+					"rewardedItems": [],
+					"unlockQuestKeys": [],
+					"unlockLocationKeys": [],
+					"unlockCraftKeys": [],
+					"rewardedGold": 0,
+					"completeText": ""
+				}
+			],
+			"separators": [],
+			"props": {}
+		},
+		{
+			"name": "Crafts@requiredItems",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "6:Items",
+					"name": "key",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "quantity"
+				}
+			]
+		},
+		{
+			"name": "Crafts@consumedItems",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "6:Items",
+					"name": "key",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "quantity"
+				}
+			]
+		},
+		{
+			"name": "Crafts@rewardedItems",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "6:Items",
+					"name": "key",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "quantity"
+				}
+			]
+		},
+		{
+			"name": "Quests@requiredItems",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": []
+		},
+		{
+			"name": "Quests@consumedItems",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": []
+		},
+		{
+			"name": "Quests@rewardedItems",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": []
+		},
+		{
+			"name": "Quests@unlockQuestKeys",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "6:Quests",
+					"name": "key",
+					"display": null
+				}
+			]
+		},
+		{
+			"name": "Quests@unlockLocationKeys",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "6:Locations",
+					"name": "key",
+					"display": null
+				}
+			]
+		},
+		{
+			"name": "Quests@unlockCraftKeys",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": []
+		}
+	],
+	"customTypes": [],
+	"compress": false
+}
