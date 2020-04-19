@@ -1,36 +1,70 @@
-<p>quest-detail works!</p>
+<div>
+
+  <a [routerLink]="['/locations', currentQuest.parentLocationKey]" *ngIf="currentQuest.parentLocationKey"> &lt; {{heroService.getLocation(currentQuest.parentLocationKey).name}}</a>
+</div>
 
 <div class="quest">
   <div class="title">
-    <h2>Quest Name</h2>
+    <h2>{{currentQuest.name}}</h2>
   </div>
   <div class="image">
-    <img src=""/>
+    <img src="/assets/images/quests/{{currentQuest.imageKey}}.png" alt="{{currentQuest.name}} - {{currentQuest.description}}" width="64" height="64"/>
   </div>
   <div class="description">
-    description
+    {{currentQuest.description}}
   </div>
-  <div class="requires">
+
+  <div class="actions" *ngIf="canUndertakeQuest(currentQuest.key)">
+    <button type="button" class="btn-large" (click)="undertakeQuest(currentQuest.key)">Undertake Quest</button>
+  </div>
+
+  <div class="requires-gold" *ngIf="currentQuest.requiredGold > 0">
+    <h3>Required Gold</h3>
+    {{currentQuest.requiredGold}}
+  </div>
+  <div class="requires" *ngIf="currentQuest.requiredItems.length > 0">
     <h3>Required Items</h3>
-    <ul>
-      <li>Item ##</li>
-    </ul>
+    <div class="item-quantity" *ngFor="let itemQuantity in currentQuest.requiredItems">
+      <img src="/assets/images/items/{{gameDataService.getItem(itemQuantity.key).imageKey}}.png" width="32" height="32">
+      <span ngIf="itemQuantity.quantity > 1">x {{itemQuantity.quantity}}</span>
+    </div>
   </div>
-  <div class="consumes">
+  <div class="consumes" *ngIf="currentQuest.consumedItems.length > 0">
     <h3>Consumed Items</h3>
-    <ul>
-      <li>Item ##</li>
-    </ul>
+    <div class="item-quantity" *ngFor="let itemQuantity in currentQuest.consumedItems">
+      <img src="/assets/images/items/{{gameDataService.getItem(itemQuantity.key).imageKey}}.png" width="32" height="32">
+      <span ngIf="itemQuantity.quantity > 1">x {{itemQuantity.quantity}}</span>
+    </div>
   </div>
   <div class="rewards">
-    <h3>Reward</h3>
-    <ul>
-      <li>Item ##</li>
-    </ul>
-  </div>
-  <div class="actions">
-    <ul>
-      <li>Complete Quest</li>
-    </ul>
+    <h3>Rewards</h3>
+    <div *ngIf="currentQuest.rewardedGold">Rewarded Gold: {{currentQuest.rewardedGold}}</div>
+    <div *ngIf="currentQuest.rewardedItems.length > 0">
+      <h4>Items</h4>
+      <div class="item-quantity" *ngFor="let itemQuantity in currentQuest.rewardedItems" >
+        <img src="/assets/images/items/{{gameDataService.getItem(itemQuantity.key).imageKey}}.png" alt="{{gameDataService.getItem(itemQuantity.key).name}} - {{gameDataService.getItem(itemQuantity.key).description}}" width="32" height="32">
+        <span ngIf="itemQuantity.quantity > 1">x {{itemQuantity.quantity}}</span>
+      </div>
+    </div>
+    <div *ngIf="currentQuest.unlockCraftKeys.length > 0">
+      <h4>Rewarded Crafting Recipes</h4>
+      <div *ngFor="let craftKey of currentQuest.unlockCraftKeys">
+        <div *ngFor="let questKey of currentQuest.unlockQuestKeys">
+          <img src="/assets/images/crafts/{{gameDataService.getCraft(craftKey.key).imageKey}}.png" width="32" height="32"> - {{gameDataService.getCraft(craftKey.key).name}}
+        </div>
+      </div>
+    </div>
+    <div *ngIf="currentQuest.unlockLocationKeys.length > 0">
+      <h4>Discovers Locations</h4>
+      <div *ngFor="let locationKey of currentQuest.unlockLocationKeys">
+        <img src="/assets/images/locations/{{gameDataService.getLocation(locationKey.key).imageKey}}.png" width="32" height="32"> - {{gameDataService.getLocation(locationKey.key).name}}
+      </div>
+    </div>
+    <div *ngIf="currentQuest.unlockQuestKeys.length > 0">
+      <h4>Discovers Quests</h4>
+      <div *ngFor="let questKey of currentQuest.unlockQuestKeys">
+        <img src="/assets/images/quests/{{gameDataService.getQuest(questKey.key).imageKey}}.png" width="32" height="32"> - {{gameDataService.getQuest(questKey.key).name}}
+      </div>
+    </div>
   </div>
 </div>

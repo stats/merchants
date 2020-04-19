@@ -1,7 +1,8 @@
 export interface Location {
   name: string;
-  descritpion: string;
+  description: string;
   key: string;
+  imageKey: string;
   parentLocationKey: string;
   unlocked: boolean;
   sellsItemKeys: string[];

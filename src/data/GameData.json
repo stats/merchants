@@ -10,6 +10,10 @@
 				},
 				{
 					"typeStr": "1",
+					"name": "imageKey"
+				},
+				{
+					"typeStr": "1",
 					"name": "name"
 				},
 				{
@@ -55,18 +59,20 @@
 					"sellsItemKeys": [],
 					"buysItemKeys": [],
 					"buysMarkup": 1,
-					"sellsMarkup": 1
+					"sellsMarkup": 1,
+					"imageKey": "pittmedden"
 				},
 				{
 					"key": "pittmedden_town",
 					"name": "Pittmedden Town",
 					"description": "A somewhat thriving frontier town that boasts basic amenities required by the adventuring merchant",
-					"unlocked": true,
+					"unlocked": false,
 					"sellsItemKeys": [],
 					"buysItemKeys": [],
 					"buysMarkup": 1,
 					"sellsMarkup": 1,
-					"parentLocationKey": "pittmedden"
+					"parentLocationKey": "pittmedden",
+					"imageKey": "pittmedden_town"
 				},
 				{
 					"key": "pittmedden_generalstore",
@@ -102,7 +108,8 @@
 						}
 					],
 					"buysMarkup": 0.5,
-					"sellsMarkup": 1
+					"sellsMarkup": 1,
+					"imageKey": "store"
 				},
 				{
 					"key": "pittmedden_well",
@@ -112,7 +119,8 @@
 					"sellsItemKeys": [],
 					"buysItemKeys": [],
 					"buysMarkup": 0,
-					"sellsMarkup": 0
+					"sellsMarkup": 0,
+					"imageKey": "well"
 				},
 				{
 					"key": "pittmedden_blacksmith",
@@ -122,7 +130,8 @@
 					"sellsItemKeys": [],
 					"buysItemKeys": [],
 					"buysMarkup": 0,
-					"sellsMarkup": 0
+					"sellsMarkup": 0,
+					"imageKey": "blacksmith"
 				},
 				{
 					"key": "pittmedden_forest",
@@ -132,7 +141,8 @@
 					"sellsItemKeys": [],
 					"buysItemKeys": [],
 					"buysMarkup": 0,
-					"sellsMarkup": 0
+					"sellsMarkup": 0,
+					"imageKey": "forest"
 				},
 				{
 					"key": "pittmedden_alchemist",
@@ -142,7 +152,8 @@
 					"sellsItemKeys": [],
 					"buysItemKeys": [],
 					"buysMarkup": 0,
-					"sellsMarkup": 0
+					"sellsMarkup": 0,
+					"imageKey": "alchemist"
 				},
 				{
 					"key": "pittmedden_mill",
@@ -152,7 +163,8 @@
 					"sellsItemKeys": [],
 					"buysItemKeys": [],
 					"buysMarkup": 0,
-					"sellsMarkup": 0
+					"sellsMarkup": 0,
+					"imageKey": "mill"
 				}
 			],
 			"separators": [],
@@ -198,6 +210,11 @@
 				},
 				{
 					"typeStr": "1",
+					"name": "imageKey",
+					"display": null
+				},
+				{
+					"typeStr": "1",
 					"name": "name",
 					"display": null
 				},
@@ -216,121 +233,141 @@
 					"key": "redcap_mushroom_small",
 					"name": "Small Redcap Mushroom",
 					"description": "A small mushroom with a red cap",
-					"cost": 5
+					"cost": 5,
+					"imageKey": "redcap_mushroom"
 				},
 				{
 					"key": "pelt_small",
 					"name": "Small Pelt",
 					"description": "A small animal pelt",
-					"cost": 5
+					"cost": 5,
+					"imageKey": "pelt"
 				},
 				{
 					"key": "pelt_medium",
 					"name": "Medium Pelt",
 					"description": "A medium sized animal pelt",
-					"cost": 15
+					"cost": 15,
+					"imageKey": "pelt"
 				},
 				{
 					"key": "sewing_needle",
 					"name": "Sewing Needle",
 					"description": "A small sewing needle",
-					"cost": 1
+					"cost": 1,
+					"imageKey": "sewing_needle"
 				},
 				{
 					"key": "thread",
 					"name": "Thread",
 					"description": "A small spool of thread",
-					"cost": 1
+					"cost": 1,
+					"imageKey": "thread"
 				},
 				{
 					"key": "health_potion_small",
 					"name": "Small Health Potion",
 					"description": "A small potion of healing",
-					"cost": 50
+					"cost": 50,
+					"imageKey": "health_potion"
 				},
 				{
 					"key": "mortar_pestel",
 					"name": "Mortar and pestal",
 					"description": "Device used for grinding ingredients into a powder",
-					"cost": 10
+					"cost": 10,
+					"imageKey": "mortar_pestel"
 				},
 				{
 					"key": "glass_vial",
 					"name": "Glass Vial",
 					"description": "A small glass vial",
-					"cost": 1
+					"cost": 1,
+					"imageKey": "glass_vial"
 				},
 				{
 					"key": "water_bucket",
 					"name": "Bucket of Water",
 					"description": "A bucket of water, drawn from a common water source",
-					"cost": 1
+					"cost": 1,
+					"imageKey": "water_bucket"
 				},
 				{
 					"key": "smith_hammer",
 					"name": "Smith's Hammer",
 					"description": "A common hammer used by metal smiths",
-					"cost": 10
+					"cost": 10,
+					"imageKey": "smith_hammer"
 				},
 				{
 					"key": "iron_lump",
 					"name": "Lump of Iron",
 					"description": "A small lump of iron ore",
-					"cost": 5
+					"cost": 5,
+					"imageKey": "iron_lump"
 				},
 				{
 					"key": "horse_shoe",
 					"name": "Horse Shoe",
 					"description": "A shoe for a horse",
-					"cost": 2
+					"cost": 2,
+					"imageKey": "horse_shoe"
 				},
 				{
 					"key": "dagger_iron_poor",
 					"name": "Poor Quality Iron Dagger",
 					"description": "Not much more than a lump of iron made a little pit pointy",
-					"cost": 6
+					"cost": 6,
+					"imageKey": "dagger_iron"
 				},
 				{
 					"key": "short_sword_iron_poor",
 					"name": "Poor Quality Iron Short Sword",
 					"description": "An arms length sword of iron, poor quality with not much of an edge",
-					"cost": 15
+					"cost": 15,
+					"imageKey": "short_sword_iron"
 				},
 				{
 					"key": "shield_round_iron_poor",
 					"name": "Poor Quality Iron Banded Round Shield",
 					"description": "Primarily a wooden shield with rough iron bands pounded across to hold it together",
-					"cost": 10
+					"cost": 10,
+					"imageKey": "shield_round_iron"
 				},
 				{
 					"key": "axe_lumber_poor",
 					"name": "Poor Quality Lumber Axe",
 					"description": "An axe designed for chopping down trees, not very durable",
-					"cost": 10
+					"cost": 10,
+					"imageKey": "axe_lumber"
 				},
 				{
 					"key": "log_soft",
 					"name": "Softwood Log",
 					"description": "A log earned by chopping down an evergreen tree",
-					"cost": 1
+					"cost": 1,
+					"imageKey": "log"
 				},
 				{
 					"key": "log_hardwood",
 					"name": "Hardwood Log",
 					"description": "A log earned by chopping down a deciduous tree",
-					"cost": 2
+					"cost": 2,
+					"imageKey": "log"
 				},
 				{
 					"key": "handle_wood_soft",
 					"name": "Soft Wooden Rod",
 					"description": "A rod made from a softwood log, not the best quality",
-					"cost": 2
+					"cost": 2,
+					"imageKey": "handle_wood"
 				},
 				{
 					"key": "handle_wood_hard",
 					"name": "Hard Wooden Rod",
 					"description": "A rod made from a hardwood log, more durable than a softwood variant",
-					"cost": 3
+					"cost": 3,
+					"imageKey": "handle_wood"
 				}
 			],
 			"separators": [],
@@ -342,6 +379,11 @@
 				{
 					"typeStr": "0",
 					"name": "key",
+					"display": null
+				},
+				{
+					"typeStr": "1",
+					"name": "imageKey",
 					"display": null
 				},
 				{
@@ -403,7 +445,8 @@
 							"key": "horse_shoe",
 							"quantity": 4
 						}
-					]
+					],
+					"imageKey": "bulk_good"
 				},
 				{
 					"key": "healing_potion_small",
@@ -436,7 +479,8 @@
 							"key": "health_potion_small",
 							"quantity": 1
 						}
-					]
+					],
+					"imageKey": "alchemy"
 				}
 			],
 			"separators": [],
@@ -448,6 +492,11 @@
 				{
 					"typeStr": "0",
 					"name": "key",
+					"display": null
+				},
+				{
+					"typeStr": "1",
+					"name": "imageKey",
 					"display": null
 				},
 				{
@@ -531,24 +580,22 @@
 					"rewardedItems": [],
 					"unlockLocationKeys": [
 						{
-							"key": "pittmedden_generalstore"
-						},
-						{
-							"key": "pittmedden_well"
+							"key": "pittmedden_town"
 						}
 					],
 					"unlockQuestKeys": [
 						{
-							"key": "pittmedden_explore_002"
+							"key": "pittmedden_town_explore_001"
 						}
 					],
 					"unlockCraftKeys": [],
 					"rewardedGold": 0,
-					"completeText": "You have found the General Store and the Central Square Well"
+					"completeText": "You have found the General Store and the Central Square Well",
+					"imageKey": "explore"
 				},
 				{
-					"key": "pittmedden_explore_002",
-					"name": "",
+					"key": "pittmedden_town_explore_001",
+					"name": "Explore Pittmedden Town",
 					"description": "",
 					"parentLocationKey": "pittmedden",
 					"repeatable": false,
@@ -558,10 +605,18 @@
 					"consumedItems": [],
 					"rewardedItems": [],
 					"unlockQuestKeys": [],
-					"unlockLocationKeys": [],
+					"unlockLocationKeys": [
+						{
+							"key": "pittmedden_well"
+						},
+						{
+							"key": "pittmedden_generalstore"
+						}
+					],
 					"unlockCraftKeys": [],
 					"rewardedGold": 0,
-					"completeText": ""
+					"completeText": "",
+					"imageKey": "explore"
 				}
 			],
 			"separators": [],

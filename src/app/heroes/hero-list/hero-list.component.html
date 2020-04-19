@@ -5,7 +5,7 @@
     <img src="/assets/images/heroes/hero001.png" width="32" height="32" [alt]="hero.name" class="circle"/>
     <span class="title">{{hero.name}}</span>
     <p>Gold: {{hero.gold}} Locations: {{hero.locations.length}} Crafts: {{hero.crafts.length}}</p>
-    <a href="#!" class="secondary-content" (click)="selectHero(hero.name)"><i class="material-icons">play_arrow</i></a>
+    <a class="secondary-content" (click)="selectHero(hero.name)"><i class="material-icons">play_arrow</i></a>
   </li>
 </ul>
 
@@ -17,7 +17,7 @@
         <form (submit)="addHero()" novalidate class="container">
           <div class="row">
             <div class="input-field">
-              <input [(ngModel)]="name" name="addNew" placeholder="enter a name for your hero here..." type="text">
+              <input [(ngModel)]="name" name="addNew" placeholder="enter a name for your hero here..." type="text" autocomplete="off">
               <label for="addNew">Hero's Name</label>
             </div>
             <button type="submit" class="btn">Create Hero</button>

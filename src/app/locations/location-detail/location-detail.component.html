@@ -1,21 +1,60 @@
-<p>location-detail works!</p>
+<div >
+  <a [routerLink]="['/locations']">Locations</a>
+  <a [routerLink]="['/locations', currentLocation.parentLocationKey]" *ngIf="currentLocation.parentLocationKey"> &lt; {{heroService.getLocation(currentLocation.parentLocationKey).name}}</a>
+</div>
+
 
 <div class="location">
   <div class="title">
-    <h2>Location Name</h2>
-  </div>
-  <div class="image">
-    <img src=""/>
+    <h2><img src="/assets/images/locations/{{currentLocation.imageKey}}.png" width="64" height="64"/> {{currentLocation.name}}</h2>
   </div>
   <div class="description">
-    description
+    {{currentLocation.description}}
   </div>
-  <div class="actions">
-    <ul>
-      <li>Locations ##</li>
-      <li>Quests ##</li>
-      <li>Buy ##</li>
-      <li>Sell ##</li>
+
+  <div class="locations" *ngIf="heroService.getLocationsByParent(currentLocation.key).length > 0">
+    <h3>Travel To</h3>
+
+    <ul class="locations collection">
+      <li *ngFor="let location of heroService.getLocationsByParent(currentLocation.key)" class="collection-item avatar">
+        <img src="/assets/images/locations/{{location.imageKey}}.png" width="32" height="32" [alt]="location.name + ' - ' + location.description" class="circle"/>
+        <span class="title">{{location.name}}</span>
+        <a [routerLink]="['/locations', location.key]" class="secondary-content"><i class="material-icons">play_arrow</i></a>
+      </li>
     </ul>
   </div>
+
+  <div class="quests" *ngIf="heroService.getQuestsByLocation(currentLocation.key).length > 0">
+    <h3>Available Quests</h3>
+    <ul class="collection">
+      <li *ngFor="let quest of heroService.getQuestsByLocation(currentLocation.key)" class="collection-item avatar">
+        <img src="/assets/images/quests/{{quest.imageKey}}.png" width="32" height="32" [alt]="quest.name + ' - ' + quest.description" class="circle"/>
+        <span class="title">{{quest.name}}</span>
+        <a [routerLink]="['/quests', quest.key]" class="secondary-content"><i class="material-icons">play_arrow</i></a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="sells-items" *ngIf="heroService.getSellsItemsByLocation(currentLocation.key).length > 0">
+    <h3>Vendor is selling</h3>
+    <ul class="collection">
+      <li *ngFor="let item of heroService.getSellsItemsByLocation(currentLocation.key)" class="collection-item avatar">
+        <img src="/assets/images/items/{{item.imageKey}}.png" width="32" height="32" [alt]="item.name + ' - ' + item.description" class="circle"/>
+        <span class="title">{{item.name}}</span>
+        <a [routerLink]="['/items', item.key]" class="secondary-content"><i class="material-icons">play_arrow</i></a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="buys-items" *ngIf="heroService.getBuysItemsByLocation(currentLocation.key).length > 0">
+    <h3>Vendor will buy</h3>
+    <ul class="collection">
+      <li *ngFor="let item of heroService.getBuysItemsByLocation(currentLocation.key)" class="collection-item avatar">
+        <img src="/assets/images/items/{{item.imageKey}}.png" width="32" height="32" [alt]="item.name + ' - ' + item.description" class="circle"/>
+        <span class="title">{{item.name}}</span>
+        <a [routerLink]="['/items', item.key]" class="secondary-content"><i class="material-icons">play_arrow</i></a>
+      </li>
+    </ul>
+  </div>
+
 </div>

@@ -7,6 +7,7 @@ import { Location } from '../locations/shared/location.model';
 import { Quest } from '../quests/shared/quest.model';
 import { Craft } from '../crafts/shared/craft.model';
 import { ItemQuantity } from '../items/shared/item-quantity.model';
+import { Item } from '../items/shared/item.model';
 
 import { GameDataService } from '../common/game-data/game-data.service';
 
@@ -79,7 +80,22 @@ export class HeroService {
   }
 
   getLocation(key: string): Location {
+    console.log('Getting Location', key);
     return this.currentHero.locations.find(location => location.key === key);
+  }
+
+  getQuestsByLocation(key: string): Quest[] {
+    return this.currentHero.quests.filter(quest => quest.parentLocationKey === key);
+  }
+
+  getSellsItemsByLocation(key: string): Item[] {
+    let itemStrings: string[] = this.currentHero.locations.find(location => location.key === key).sellsItemKeys;
+    return this._gameData.getItems().filter(item => item.key in itemStrings);
+  }
+
+  getBuysItemsByLocation(key: string): Item[] {
+    let itemStrings: string[] = this.currentHero.locations.find(location => location.key === key).buysItemKeys;
+    return this._gameData.getItems().filter(item => item.key in itemStrings);
   }
 
   addLocation(key: string): void {

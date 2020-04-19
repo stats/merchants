@@ -5,15 +5,16 @@ export interface Quest {
   description: string;
   complete: string;
   key: string;
+  imageKey: string;
   parentLocationKey: string;
   repeatable: boolean;
   unlocked: boolean;
   requiredGold: number;
   requiredItems: ItemQuantity[];
   consumedItems: ItemQuantity[];
-  rewardsItems: ItemQuantity[];
+  rewardedGold: number,
+  rewardedItems: ItemQuantity[];
   unlockQuestKeys: string[];
   unlockLocationKeys: string[];
   unlockCraftKeys: string[];
-  rewardGold: number,
 }
