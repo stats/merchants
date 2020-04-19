@@ -8,7 +8,7 @@ import { Quest } from '../quests/shared/quest.model';
 import { Craft } from '../crafts/shared/craft.model';
 import { ItemQuantity } from '../items/shared/item-quantity.model';
 
-import GameData from '../../data/GameData.json';
+import { GameDataService } from '../common/game-data/game-data.service';
 
 @Injectable()
 export class HeroService {
@@ -17,24 +17,25 @@ export class HeroService {
 
   public currentHero$: BehaviorSubject<Hero> ;
 
+  private _gameData:GameDataService;
+
   constructor() {
+    this._gameData = new GameDataService();
     this.heroes = JSON.parse(localStorage.getItem('heroes'));
     console.log(this.heroes);
     if(this.heroes == null) {
       this.heroes = [];
     }
     this.currentHero$ = new BehaviorSubject<Hero>(JSON.parse(localStorage.getItem('currentHero')));
-
-    console.log(GameData);
   }
 
   createHero(name: string) {
     let hero: Hero = {
       name: name,
       gold: 50,
-      locations: [],
-      crafts: [],
-      quests: [],
+      locations: this._gameData.getUnlockedLocations(),
+      crafts: this._gameData.getUnlockedCrafts(),
+      quests: this._gameData.getUnlockedQuests(),
       inventory: []
     };
 
