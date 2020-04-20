@@ -7,6 +7,8 @@ export interface Hero {
   name: string;
   gold: number;
 
+  questsCompleted: number;
+
   locations:Location[];
   crafts:Craft[];
   quests:Quest[];

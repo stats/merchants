@@ -34,6 +34,7 @@ export class HeroService {
     let hero: Hero = {
       name: name,
       gold: 50,
+      questsCompleted: 0,
       locations: this._gameData.getUnlockedLocations(),
       crafts: this._gameData.getUnlockedCrafts(),
       quests: this._gameData.getUnlockedQuests(),
@@ -84,6 +85,17 @@ export class HeroService {
     return this.currentHero.locations.find(location => location.key === key);
   }
 
+  addLocations(keys: string[]): void {
+    for(let key of keys) {
+      this.addLocation(key);
+    }
+  }
+
+  addLocation(key: string): void {
+    let l: Location = this._gameData.getLocation(key);
+    this.currentHero.locations.push(l);
+  }
+
   getQuestsByLocation(key: string): Quest[] {
     return this.currentHero.quests.filter(quest => quest.parentLocationKey === key);
   }
@@ -98,14 +110,6 @@ export class HeroService {
     return this._gameData.getItems().filter(item => item.key in itemStrings);
   }
 
-  addLocation(key: string): void {
-
-  }
-
-  removeLocation(key: string): void {
-
-  }
-
   getQuests(): Quest[] {
     return this.currentHero.quests;
   }
@@ -114,13 +118,62 @@ export class HeroService {
     return this.currentHero.quests.find(quest => quest.key === key);
   }
 
-  addQuest(key: string): void {
+  addQuests(keys: string[] ): void {
+    for(let key of keys) {
+      this.addQuest(key);
+    }
+  }
 
+  addQuest(key: string): void {
+    let q: Quest = this._gameData.getQuest(key);
+    this.currentHero.quests.push(q);
   }
 
   removeQuest(key: string): void {
+    this.currentHero.quests = this.currentHero.quests.filter(quest => quest.key === key);
+  }
+
+  undertakeQuest(key: string): boolean {
+    if(!this.canUndertakeQuest(key)) return false;
+    let q = this.getQuest(key);
+    /**
+     * Remove item
+     */
+    this.currentHero.gold -= q.requiredGold;
+    this.removeInventoryItems(q.consumedItems);
+
+    /**
+     * Add item
+     **/
+    this.currentHero.questsCompleted += 1;
+    this.currentHero.gold += q.rewardedGold;
+    this.addInventoryItems(q.rewardedItems);
+    this.addLocations(q.unlockLocationKeys);
+    this.addQuests(q.unlockQuestKeys);
+    this.addCrafts(q.unlockCraftKeys);
+
+    /**
+     * Remove this quest if not repeatable
+     **/
+    if(!q.repeatable) {
+      this.removeQuest(q.key);
+    }
+
+    return true;
+
 
   }
+
+  canUndertakeQuest(key: string): boolean {
+    let q: Quest = this.getQuest(key);
+    if(!q || !q.unlocked) return false;
+
+    if(this.currentHero.gold < q.requiredGold) return false;
+    if(!this.hasItemQuantities(this.combineItemQuantities(q.requiredItems, q.consumedItems))) return false;
+
+    return true;
+  }
+
 
   getCrafts(): Craft[] {
     return this.currentHero.crafts;
@@ -130,12 +183,15 @@ export class HeroService {
     return this.currentHero.crafts.find(craft => craft.key === key);
   }
 
-  addCraft(key: string): void {
-
+  addCrafts(keys: string[]): void {
+    for(let key of keys) {
+      this.addCraft(key);
+    }
   }
 
-  removeCraft(key: string): void {
-
+  addCraft(key: string): void {
+    let c: Craft = this._gameData.getCraft(key);
+    this.currentHero.crafts.push(c);
   }
 
   getInventory(): ItemQuantity[] {
@@ -146,15 +202,62 @@ export class HeroService {
     return this.currentHero.inventory.find(itemquantity => itemquantity.key === key);
   }
 
-  addItemQuantity(): void {
+  combineItemQuantities(items1: ItemQuantity[], items2: ItemQuantity[]): ItemQuantity[] {
+    let results: ItemQuantity[] = [];
+    for(let item of items1) {
+      let iq: ItemQuantity = { key: item.key, quantity: item.quantity };
+      results.push(iq);
+    }
 
+    for(let item of items2) {
+      let iq: ItemQuantity = results.find(i => i.key === item.key);
+      if(iq) {
+        iq.quantity += item.quantity;
+      } else {
+        iq = {key: item.key, quantity: item.quantity }
+        results.push(iq);
+      }
+    }
+    return results;
   }
 
-  removeItemQuantity(): void {
+  removeInventoryItems(items: ItemQuantity[]): void {
+    for(let item of items) {
+      this.removeInventoryItem(item);
+    }
+  }
 
+  removeInventoryItem(item: ItemQuantity): void {
+    let iq = this.getItemQuantity(item.key);
+    iq.quantity -= item.quantity;
+  }
+
+  addInventoryItems(items: ItemQuantity[]): void {
+    for(let item of items) {
+      this.addInventoryItem(item);
+    }
+  }
+
+  addInventoryItem(item: ItemQuantity): void {
+    let iq: ItemQuantity = this.getItemQuantity(item.key);
+    if(iq) {
+      iq.quantity += item.quantity;
+    } else {
+      iq = { key: item.key, quantity: item.quantity };
+      this.currentHero.inventory.push(iq);
+    }
   }
 
   hasItemQuantities(items: ItemQuantity[] ): boolean {
+    for(let iq of items) {
+      if(!this.hasItemQuantity(iq)) return false;
+    }
+    return true;
+  }
+
+  hasItemQuantity(item: ItemQuantity ): boolean {
+    let iq: ItemQuantity = this.getItemQuantity(item.key);
+    if(iq && iq.quantity >= item.quantity) return true;
     return false;
   }
 }

@@ -24,11 +24,11 @@ export class QuestDetailComponent implements OnInit {
   }
 
   canUndertakeQuest(key: string): boolean {
-    return true;
+    return this.heroService.canUndertakeQuest(key);
   }
 
   undertakeQuest(key: string): void {
-
+    this.heroService.undertakeQuest(key);
   }
 
 }

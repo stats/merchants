@@ -26,6 +26,10 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
+## TODO
+
+* Add skills that could be another required item. This might be an expansion.
+
 ## Locations
 
 * L - Pittmedden Town
@@ -44,4 +48,3 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
   * L - Pittmedden Tavern
     * Q - Loosen Tongues
     * Q - Gossip of Adventures
-"# merchants" 
