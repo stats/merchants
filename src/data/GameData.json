@@ -77,7 +77,7 @@
 				{
 					"key": "pittmedden_generalstore",
 					"name": "Pittmedden General Store",
-					"description": "",
+					"description": "A small general store with basic suppliest, mostly generic food stock.",
 					"unlocked": false,
 					"sellsItemKeys": [
 						{
@@ -603,7 +603,7 @@
 					"key": "pittmedden_town_explore_001",
 					"name": "Explore Pittmedden Town",
 					"description": "",
-					"parentLocationKey": "pittmedden",
+					"parentLocationKey": "pittmedden_town",
 					"repeatable": false,
 					"unlocked": false,
 					"requiredGold": 0,

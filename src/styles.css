@@ -6,8 +6,130 @@ html, body {
   margin: 0;
 }
 
+body {display: flex;min-height: 100vh; flex-direction: column;}
+main {
+  flex: 1 0 auto;
+}
+
 img {
-  image-rendering: auto;
-  image-rendering: crisp-edges;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
   image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+nav {
+  color: #fff;
+  background-color: #ee6e73;
+  width: 100%;
+  height: 56px;
+  line-height: 56px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+
+nav .brand-logo {
+  font-family: 'Anton', sans-serif;
+  position: absolute;
+  color: #fff;
+  display: inline-block;
+  font-size: 2.1rem;
+  padding: 0;
+}
+
+.navbar-fixed nav {
+	padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+.footer-fixed footer {
+	padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+.footer-fixed {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+footer ul {
+		text-align: center;
+    display: table;
+    margin: 0 auto;
+}
+
+footer img {
+  vertical-align: middle;
+}
+
+.hero-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  margin: 6px 0;
+}
+
+.hero-name {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.container {
+  width: 85%;
+  margin: 0 auto;
+  margin-bottom: 66px;
+  max-width: 1280px;
+}
+
+ul.collection {
+  margin: .5rem 0 1rem 0;
+  padding-left: 0;
+  list-style-type: none;
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.collection .collection-item {
+  min-height: 52px;
+  padding-left: 72px;
+  position: relative;
+  display: flex;
+  justify-content: left;
+  background: #fff;
+  background-image: url('/assets/images/interface/arrow.png');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 32px;
+  line-height: 1.5rem;
+  padding: 10px 20px;
+  margin: 0;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 1.5em;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.collection .collection-item:last-child {
+  border-bottom: none;
+}
+
+.collection .collection-item:hover {
+  cursor: pointer;
+}
+
+.collection .collection-item>* {
+  display: flex;
+  align-items: center;
+  margin: auto 0;
+}
+
+.collection .collection-item>img {
+  margin-right: 10px;
+}
+
+.collection .multiline {
+  display: inline-block;
 }

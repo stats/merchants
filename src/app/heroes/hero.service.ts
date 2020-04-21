@@ -114,13 +114,15 @@ export class HeroService {
   }
 
   getSellsItemsByLocation(key: string): Item[] {
-    let itemStrings: string[] = this._gameData.getLocation(key).sellsItemKeys;
-    return this._gameData.getItems().filter(item => item.key in itemStrings);
+    let itemKeys: Key[] = this._gameData.getLocation(key).sellsItemKeys;
+    let itemStrings: string[] = itemKeys.map(key => key.key );
+    return this._gameData.getItems().filter(item => itemStrings.indexOf(item.key) !== -1);
   }
 
   getBuysItemsByLocation(key: string): Item[] {
-    let itemStrings: string[] = this._gameData.getLocation(key).buysItemKeys;
-    return this._gameData.getItems().filter(item => item.key in itemStrings);
+    let itemKeys: Key[] = this._gameData.getLocation(key).buysItemKeys;
+    let itemStrings: string[] = itemKeys.map(key => key.key );
+    return this._gameData.getItems().filter(item => itemStrings.indexOf(item.key) !== -1);
   }
 
   undertakeQuest(key: string): boolean {

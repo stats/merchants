@@ -1,11 +1,12 @@
 <h1>Your Heroes</h1>
 
 <ul class="heroes collection">
-  <li *ngFor="let hero of heroService.getHeroes()" class="collection-item avatar">
-    <img src="/assets/images/heroes/hero001.png" width="32" height="32" [alt]="hero.name" class="circle"/>
-    <span class="title">{{hero.name}}</span>
-    <p>Gold: {{hero.gold}} Locations: {{hero.locations.length}} Crafts: {{hero.crafts.length}}</p>
-    <a class="secondary-content" (click)="selectHero(hero.name)"><i class="material-icons">play_arrow</i></a>
+  <li *ngFor="let hero of heroService.getHeroes()" class="collection-item" (click)="selectHero(hero.name)">
+    <img src="/assets/images/heroes/hero001.png" width="32" height="32" [alt]="hero.name"/>
+    <div class="multiline">
+      <span class="title">{{hero.name}}</span>
+      <p>Gold: {{hero.gold}} Locations: {{hero.locations.length}} Crafts: {{hero.crafts.length}}</p>
+    </div>
   </li>
 </ul>
 

@@ -1,3 +1,5 @@
+import { Key } from '../../common/key-count.model';
+
 export interface Location {
   name: string;
   description: string;
@@ -5,8 +7,8 @@ export interface Location {
   imageKey: string;
   parentLocationKey: string;
   unlocked: boolean;
-  sellsItemKeys: string[];
-  buysItemKeys: string[];
+  sellsItemKeys: Key[];
+  buysItemKeys: Key[];
   sellsMarkup: number;
   buysMarkup: number;
 }
