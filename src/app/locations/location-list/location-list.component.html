@@ -1,7 +1,7 @@
 <p>Locations</p>
 
 <ul class="locations collection">
-  <li *ngFor="let location of heroService.getLocations()" class="collection-item avatar">
+  <li *ngFor="let location of heroService.getAvailableRootLocations()" class="collection-item avatar">
     <img src="/assets/images/locations/{{location.imageKey}}.png" width="32" height="32" [alt]="location.name + ' - ' + location.description" class="circle"/>
     <span class="title">{{location.name}}</span>
     <a [routerLink]="['/locations', location.key]" class="secondary-content"><i class="material-icons">play_arrow</i></a>

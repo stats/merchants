@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HeroService } from './heroes/hero.service';
-import { Hero } from './heroes/shared/hero.model';
+import { IHero } from './heroes/shared/hero.model';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,7 @@ import { Hero } from './heroes/shared/hero.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  currentHero: Hero;
+  currentHero: IHero;
 
   constructor( public heroService: HeroService ) {
     this.heroService.currentHero$.subscribe(hero => {

@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 
 import { BehaviorSubject, Observable } from 'rxjs';
 
-import { Hero } from './shared/hero.model';
+import { Hero, IHero } from './shared/hero.model';
 import { Location } from '../locations/shared/location.model';
 import { Quest } from '../quests/shared/quest.model';
 import { Craft } from '../crafts/shared/craft.model';
-import { KeyCount } from '../common/key-count.model';
+import { Key, KeyCount } from '../common/key-count.model';
 import { Item } from '../items/shared/item.model';
 
 import { GameDataService } from '../common/game-data/game-data.service';
@@ -15,33 +15,44 @@ import { GameDataService } from '../common/game-data/game-data.service';
 export class HeroService {
 
   private heroes:Hero[];
+  private currentHeroIndex: number;
 
-  public currentHero$: BehaviorSubject<Hero> ;
+  public currentHero$: BehaviorSubject<IHero> ;
 
   private _gameData:GameDataService;
 
   constructor() {
     this._gameData = new GameDataService();
     this.heroes = JSON.parse(localStorage.getItem('heroes'));
+    if(this.heroes == null) {
+      this.heroes = [];
+    }
+    for(let i = 0; i < this.heroes.length; i++) {
+      this.heroes[i] = new Hero(this.heroes[i]);
+    }
     console.log(this.heroes);
     if(this.heroes == null) {
       this.heroes = [];
     }
-    this.currentHero$ = new BehaviorSubject<Hero>(JSON.parse(localStorage.getItem('currentHero')));
+    this.currentHeroIndex = parseInt(localStorage.getItem('currentHeroIndex'));
+    this.currentHero$ = new BehaviorSubject<IHero>(this.currentHero);
   }
 
   createHero(name: string) {
-    let hero: Hero = {
+    let hero: Hero = new Hero({
       name: name,
       gold: 50,
-      questsCompleted: [],
+      completedQuests: [],
       locations: this._gameData.getUnlockedLocations(),
       crafts: this._gameData.getUnlockedCrafts(),
       quests: this._gameData.getUnlockedQuests(),
       inventory: []
-    };
+    });
 
     this.heroes.push(hero);
+
+    this.currentHeroIndex = this.heroes.length - 1;
+
     this.currentHero$.next(hero);
 
     this.saveHeroes();
@@ -49,6 +60,11 @@ export class HeroService {
 
   removeHero(name: string) {
     this.heroes = this.heroes.filter(hero => hero.name !== name);
+    if(this.currentHero.name == name) {
+      this.currentHeroIndex = null;
+      this.currentHero$.next(null);
+    }
+    this.saveHeroes();
   }
 
   saveHeroes() {
@@ -56,160 +72,116 @@ export class HeroService {
   }
 
   get currentHero(): Hero {
-    return this.currentHero$.value;
+    return this.heroes[this.currentHeroIndex];
   }
 
   setCurrentHero(name: string) {
-    this.currentHero$.next(this.heroes.find(hero => hero.name === name));
-    localStorage.setItem('currentHero', JSON.stringify(this.currentHero));
+    for(var i = 0; i < this.heroes.length; i++) {
+      if(this.heroes[i].name === name) {
+        this.currentHeroIndex = i;
+        this.currentHero$.next(this.heroes[i]);
+        localStorage.setItem('currentHeroIndex', "" + this.currentHeroIndex);
+      }
+    }
+  }
+
+  commitCurrentHeroChanges() {
+    this.currentHero$.next(this.currentHero);
   }
 
   getHeroes(): Hero[] {
     return this.heroes;
   }
 
-  getGold(): number {
-    return this.currentHero.gold;
+  getAvailableRootLocations(): Location[] {
+    let locations: Location[] = this._gameData.getRootLocations();
+    return locations.filter(l => this.currentHero.hasLocation(l.key));
   }
 
-  getLocations(): Location[] {
-    return this.currentHero.locations;
-  }
-
-  getLocationsByParent(key: string): Location[] {
-    return this.currentHero.locations.filter(location => location.parentLocationKey === key);
+  getAvailableLocationsByParent(key: string): Location[] {
+    let locations: Location[] = this._gameData.getLocationsByParent(key);
+    return locations.filter(l => this.currentHero.hasLocation(l.key));
   }
 
   getLocation(key: string): Location {
-    console.log('Getting Location', key);
-    return this.currentHero.locations.find(location => location.key === key);
+    return this._gameData.getLocation(key);
   }
 
-  addLocations(keys: string[]): void {
-    for(let key of keys) {
-      this.addLocation(key);
-    }
-  }
-
-  addLocation(key: string): void {
-    let l: Location = this._gameData.getLocation(key);
-    this.currentHero.locations.push(l);
-  }
-
-  getQuestsByLocation(key: string): Quest[] {
-    return this.currentHero.quests.filter(quest => quest.parentLocationKey === key);
+  getAvailableQuestsByLocation(key: string): Quest[] {
+    let quests: Quest[] = this._gameData.getQuestsByParent(key);
+    console.log('all quests', quests, key);
+    return quests.filter(q => this.currentHero.hasQuest(q.key));
   }
 
   getSellsItemsByLocation(key: string): Item[] {
-    let itemStrings: string[] = this.currentHero.locations.find(location => location.key === key).sellsItemKeys;
+    let itemStrings: string[] = this._gameData.getLocation(key).sellsItemKeys;
     return this._gameData.getItems().filter(item => item.key in itemStrings);
   }
 
   getBuysItemsByLocation(key: string): Item[] {
-    let itemStrings: string[] = this.currentHero.locations.find(location => location.key === key).buysItemKeys;
+    let itemStrings: string[] = this._gameData.getLocation(key).buysItemKeys;
     return this._gameData.getItems().filter(item => item.key in itemStrings);
-  }
-
-  getQuests(): Quest[] {
-    return this.currentHero.quests;
-  }
-
-  getQuest(key: string): Quest {
-    return this.currentHero.quests.find(quest => quest.key === key);
-  }
-
-  addQuests(keys: string[] ): void {
-    for(let key of keys) {
-      this.addQuest(key);
-    }
-  }
-
-  addQuest(key: string): void {
-    let q: Quest = this._gameData.getQuest(key);
-    this.currentHero.quests.push(q);
-  }
-
-  removeQuest(key: string): void {
-    this.currentHero.quests = this.currentHero.quests.filter(quest => quest.key === key);
-  }
-
-  completeQuest(key: string): void {
-    let kc: KeyCount = this.currentHero.questsCompleted.find(kc => kc.key === key);
-    if(kc) {
-      kc.count += 1;
-    } else {
-      kc = { key: key, count: 1 };
-      this.currentHero.questsCompleted.push(kc);
-    }
   }
 
   undertakeQuest(key: string): boolean {
     if(!this.canUndertakeQuest(key)) return false;
-    let q = this.getQuest(key);
+    let q = this._gameData.getQuest(key);
+
+    this.currentHero.gold -= q.requiredGold;
+    this.currentHero.gold += q.rewardedGold;
     /**
      * Remove item
      */
-    this.currentHero.gold -= q.requiredGold;
-    this.removeInventoryItems(q.consumedItems);
+    for(let item of q.consumedItems) {
+      this.currentHero.removeItem(item);
+    }
 
     /**
      * Add item
      **/
-    this.completeQuest(key);
-    this.currentHero.gold += q.rewardedGold;
-    this.addInventoryItems(q.rewardedItems);
-    this.addLocations(q.unlockLocationKeys);
-    this.addQuests(q.unlockQuestKeys);
-    this.addCrafts(q.unlockCraftKeys);
+    this.currentHero.completeQuest(key);
+
+    for(let item of q.rewardedItems) {
+      this.currentHero.addItem(item);
+    }
+
+    for(let loc of q.unlockLocationKeys) {
+      this.currentHero.addLocation(loc.key);
+    }
+
+    for(let que of q.unlockQuestKeys) {
+      this.currentHero.addQuest(que.key);
+    }
+
+    for(let c of q.unlockCraftKeys) {
+      this.currentHero.addCraft(c.key);
+    }
 
     /**
      * Remove this quest if not repeatable
      **/
     if(!q.repeatable) {
-      this.removeQuest(q.key);
+      this.currentHero.removeQuest(q.key);
     }
 
+    this.commitCurrentHeroChanges();
+    this.saveHeroes();
+
     return true;
-
-
   }
 
   canUndertakeQuest(key: string): boolean {
-    let q: Quest = this.getQuest(key);
-    if(!q || !q.unlocked) return false;
+    let q: Quest = this._gameData.getQuest(key);
+    if(!q || !this.currentHero.hasQuest(key)) return false;
 
     if(this.currentHero.gold < q.requiredGold) return false;
-    if(!this.hasItemQuantities(this.combineKeyCounts(q.requiredItems, q.consumedItems))) return false;
+
+    let kc: KeyCount[] = this.combineKeyCounts(q.requiredItems, q.consumedItems);
+    for(var i = 0; i < kc.length; i++) {
+      if( !this.currentHero.hasItemCount(kc[i]) ) return false;
+    }
 
     return true;
-  }
-
-
-  getCrafts(): Craft[] {
-    return this.currentHero.crafts;
-  }
-
-  getCraft(key: string): Craft {
-    return this.currentHero.crafts.find(craft => craft.key === key);
-  }
-
-  addCrafts(keys: string[]): void {
-    for(let key of keys) {
-      this.addCraft(key);
-    }
-  }
-
-  addCraft(key: string): void {
-    let c: Craft = this._gameData.getCraft(key);
-    this.currentHero.crafts.push(c);
-  }
-
-  getInventory(): KeyCount[] {
-    return this.currentHero.inventory;
-  }
-
-  getKeyCount(key: string): KeyCount {
-    return this.currentHero.inventory.find(itemcount => itemcount.key === key);
   }
 
   combineKeyCounts(items1: KeyCount[], items2: KeyCount[]): KeyCount[] {
@@ -231,43 +203,4 @@ export class HeroService {
     return results;
   }
 
-  removeInventoryItems(items: KeyCount[]): void {
-    for(let item of items) {
-      this.removeInventoryItem(item);
-    }
-  }
-
-  removeInventoryItem(item: KeyCount): void {
-    let iq = this.getKeyCount(item.key);
-    iq.count -= item.count;
-  }
-
-  addInventoryItems(items: KeyCount[]): void {
-    for(let item of items) {
-      this.addInventoryItem(item);
-    }
-  }
-
-  addInventoryItem(item: KeyCount): void {
-    let iq: KeyCount = this.getKeyCount(item.key);
-    if(iq) {
-      iq.count += item.count;
-    } else {
-      iq = { key: item.key, count: item.count };
-      this.currentHero.inventory.push(iq);
-    }
-  }
-
-  hasItemQuantities(items: KeyCount[] ): boolean {
-    for(let iq of items) {
-      if(!this.hasKeyCount(iq)) return false;
-    }
-    return true;
-  }
-
-  hasKeyCount(item: KeyCount ): boolean {
-    let iq: KeyCount = this.getKeyCount(item.key);
-    if(iq && iq.count >= item.count) return true;
-    return false;
-  }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroService } from '../../heroes/hero.service';
-import { Hero } from '../../heroes/shared/hero.model';
+import { IHero } from '../../heroes/shared/hero.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LocationListComponent implements OnInit {
 
-  currentHero: Hero;
+  currentHero: IHero;
 
   constructor(public heroService: HeroService, private router: Router) {
     this.heroService.currentHero$.subscribe(hero => {

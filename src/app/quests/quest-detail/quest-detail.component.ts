@@ -18,8 +18,7 @@ export class QuestDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      this.currentQuest = this.heroService.getQuest(params.get('key'));
-      console.log('Quest', this.currentQuest);
+      this.currentQuest = this.gameDataService.getQuest(params.get('key'));
     });
   }
 

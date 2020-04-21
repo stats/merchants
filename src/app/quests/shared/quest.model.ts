@@ -1,4 +1,4 @@
-import { KeyCount } from '../../common/key-count.model';
+import { Key, KeyCount } from '../../common/key-count.model';
 
 export interface Quest {
   name: string;
@@ -14,7 +14,7 @@ export interface Quest {
   consumedItems: KeyCount[];
   rewardedGold: number,
   rewardedItems: KeyCount[];
-  unlockQuestKeys: string[];
-  unlockLocationKeys: string[];
-  unlockCraftKeys: string[];
+  unlockQuestKeys: Key[];
+  unlockLocationKeys: Key[];
+  unlockCraftKeys: Key[];
 }

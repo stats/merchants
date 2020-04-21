@@ -109,7 +109,8 @@
 					],
 					"buysMarkup": 0.5,
 					"sellsMarkup": 1,
-					"imageKey": "store"
+					"imageKey": "store",
+					"parentLocationKey": "pittmedden_town"
 				},
 				{
 					"key": "pittmedden_well",
@@ -120,7 +121,8 @@
 					"buysItemKeys": [],
 					"buysMarkup": 0,
 					"sellsMarkup": 0,
-					"imageKey": "well"
+					"imageKey": "well",
+					"parentLocationKey": "pittmedden_town"
 				},
 				{
 					"key": "pittmedden_blacksmith",
@@ -131,7 +133,8 @@
 					"buysItemKeys": [],
 					"buysMarkup": 0,
 					"sellsMarkup": 0,
-					"imageKey": "blacksmith"
+					"imageKey": "blacksmith",
+					"parentLocationKey": "pittmedden_town"
 				},
 				{
 					"key": "pittmedden_forest",
@@ -142,7 +145,8 @@
 					"buysItemKeys": [],
 					"buysMarkup": 0,
 					"sellsMarkup": 0,
-					"imageKey": "forest"
+					"imageKey": "forest",
+					"parentLocationKey": "pittmedden"
 				},
 				{
 					"key": "pittmedden_alchemist",
@@ -153,7 +157,8 @@
 					"buysItemKeys": [],
 					"buysMarkup": 0,
 					"sellsMarkup": 0,
-					"imageKey": "alchemist"
+					"imageKey": "alchemist",
+					"parentLocationKey": "pittmedden_forest"
 				},
 				{
 					"key": "pittmedden_mill",
@@ -164,7 +169,8 @@
 					"buysItemKeys": [],
 					"buysMarkup": 0,
 					"sellsMarkup": 0,
-					"imageKey": "mill"
+					"imageKey": "mill",
+					"parentLocationKey": "pittmedden_town"
 				}
 			],
 			"separators": [],

@@ -12,11 +12,11 @@
     {{currentLocation.description}}
   </div>
 
-  <div class="locations" *ngIf="heroService.getLocationsByParent(currentLocation.key).length > 0">
+  <div class="locations" *ngIf="heroService.getAvailableLocationsByParent(currentLocation.key).length > 0">
     <h3>Travel To</h3>
 
     <ul class="locations collection">
-      <li *ngFor="let location of heroService.getLocationsByParent(currentLocation.key)" class="collection-item avatar">
+      <li *ngFor="let location of heroService.getAvailableLocationsByParent(currentLocation.key)" class="collection-item avatar">
         <img src="/assets/images/locations/{{location.imageKey}}.png" width="32" height="32" [alt]="location.name + ' - ' + location.description" class="circle"/>
         <span class="title">{{location.name}}</span>
         <a [routerLink]="['/locations', location.key]" class="secondary-content"><i class="material-icons">play_arrow</i></a>
@@ -24,10 +24,10 @@
     </ul>
   </div>
 
-  <div class="quests" *ngIf="heroService.getQuestsByLocation(currentLocation.key).length > 0">
+  <div class="quests" *ngIf="heroService.getAvailableQuestsByLocation(currentLocation.key).length > 0">
     <h3>Available Quests</h3>
     <ul class="collection">
-      <li *ngFor="let quest of heroService.getQuestsByLocation(currentLocation.key)" class="collection-item avatar">
+      <li *ngFor="let quest of heroService.getAvailableQuestsByLocation(currentLocation.key)" class="collection-item avatar">
         <img src="/assets/images/quests/{{quest.imageKey}}.png" width="32" height="32" [alt]="quest.name + ' - ' + quest.description" class="circle"/>
         <span class="title">{{quest.name}}</span>
         <a [routerLink]="['/quests', quest.key]" class="secondary-content"><i class="material-icons">play_arrow</i></a>

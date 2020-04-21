@@ -23,6 +23,8 @@ export class GameDataService {
     this._crafts = this._data['sheets'].find(c => c.name === "Crafts")['lines'];
     this._items = this._data['sheets'].find(i => i.name === "Items")['lines'];
     this._quests = this._data['sheets'].find(q => q.name === "Quests")['lines'];
+
+    console.log(this._quests);
   }
 
   getData(): any {
@@ -57,6 +59,10 @@ export class GameDataService {
     return this._quests.find(quest => quest.key === key);
   }
 
+  getQuestsByParent(key:string): Quest[] {
+    return this._quests.filter(quest => quest.parentLocationKey === key);
+  }
+
   getCrafts(): Craft[] {
     return this._crafts;
   }
@@ -71,6 +77,14 @@ export class GameDataService {
 
   getLocation(key: string): Location {
     return this._locations.find(location => location.key === key);
+  }
+
+  getLocationsByParent(key: string): Location[] {
+    return this._locations.filter(l => l.parentLocationKey === key);
+  }
+
+  getRootLocations(): Location[] {
+    return this._locations.filter(l => l.parentLocationKey == null);
   }
 
 }
