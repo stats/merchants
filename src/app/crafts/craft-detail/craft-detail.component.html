@@ -5,13 +5,13 @@
   <div class="requires">
     <h3>Required Items</h3>
     <div class="required" ngFor="let item of requirement">
-      <app-item-quantity name="item.name" key="item.key" description="item.description" quantity="item.quanity"></app-item-quantity>
+      <app-item-count name="item.name" key="item.key" description="item.description" count="item.quanity"></app-item-count>
     </div>
   </div>
   <div class="consumes">
     <h3>Consumed Items</h3>
     <div class="consumes" ngFor="let item of requirement">
-      <app-item-quantity name="" key="" description="" quantity=""></app-item-quantity>
+      <app-item-count name="" key="" description="" count=""></app-item-count>
     </div>
   </div>
   <div class="rewards">

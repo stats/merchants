@@ -24,16 +24,16 @@
   </div>
   <div class="requires" *ngIf="currentQuest.requiredItems.length > 0">
     <h3>Required Items</h3>
-    <div class="item-quantity" *ngFor="let itemQuantity in currentQuest.requiredItems">
+    <div class="item-count" *ngFor="let itemQuantity in currentQuest.requiredItems">
       <img src="/assets/images/items/{{gameDataService.getItem(itemQuantity.key).imageKey}}.png" width="32" height="32">
-      <span ngIf="itemQuantity.quantity > 1">x {{itemQuantity.quantity}}</span>
+      <span ngIf="itemQuantity.count > 1">x {{itemQuantity.count}}</span>
     </div>
   </div>
   <div class="consumes" *ngIf="currentQuest.consumedItems.length > 0">
     <h3>Consumed Items</h3>
-    <div class="item-quantity" *ngFor="let itemQuantity in currentQuest.consumedItems">
+    <div class="item-count" *ngFor="let itemQuantity in currentQuest.consumedItems">
       <img src="/assets/images/items/{{gameDataService.getItem(itemQuantity.key).imageKey}}.png" width="32" height="32">
-      <span ngIf="itemQuantity.quantity > 1">x {{itemQuantity.quantity}}</span>
+      <span ngIf="itemQuantity.count > 1">x {{itemQuantity.count}}</span>
     </div>
   </div>
   <div class="rewards">
@@ -41,9 +41,9 @@
     <div *ngIf="currentQuest.rewardedGold">Rewarded Gold: {{currentQuest.rewardedGold}}</div>
     <div *ngIf="currentQuest.rewardedItems.length > 0">
       <h4>Items</h4>
-      <div class="item-quantity" *ngFor="let itemQuantity in currentQuest.rewardedItems" >
+      <div class="item-count" *ngFor="let itemQuantity in currentQuest.rewardedItems" >
         <img src="/assets/images/items/{{gameDataService.getItem(itemQuantity.key).imageKey}}.png" alt="{{gameDataService.getItem(itemQuantity.key).name}} - {{gameDataService.getItem(itemQuantity.key).description}}" width="32" height="32">
-        <span ngIf="itemQuantity.quantity > 1">x {{itemQuantity.quantity}}</span>
+        <span ngIf="itemQuantity.count > 1">x {{itemQuantity.count}}</span>
       </div>
     </div>
     <div *ngIf="currentQuest.unlockCraftKeys.length > 0">

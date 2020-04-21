@@ -1,4 +1,4 @@
-import { ItemQuantity } from '../../items/shared/item-quantity.model';
+import { KeyCount } from '../../common/key-count.model';
 
 export interface Craft {
   name: string;
@@ -7,7 +7,7 @@ export interface Craft {
   imageKey: string;
   unlocked: boolean;
   requiredGold: number;
-  requiredItems: ItemQuantity[];
-  consumesItems: ItemQuantity[];
-  rewardsItems: ItemQuantity[];
+  requiredItems: KeyCount[];
+  consumesItems: KeyCount[];
+  rewardsItems: KeyCount[];
 }

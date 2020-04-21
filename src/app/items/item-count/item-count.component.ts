@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-item-quantity',
-  templateUrl: './item-quantity.component.html',
-  styleUrls: ['./item-quantity.component.css']
+  selector: 'app-item-count',
+  templateUrl: './item-count.component.html',
+  styleUrls: ['./item-count.component.css']
 })
-export class ItemQuantityComponent implements OnInit {
+export class ItemCountComponent implements OnInit {
 
   @Input()
   name = "";
@@ -17,7 +17,7 @@ export class ItemQuantityComponent implements OnInit {
   key = "";
 
   @Input()
-  quantity = "";
+  count = "";
 
   constructor() { }
 

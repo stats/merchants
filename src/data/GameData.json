@@ -431,19 +431,19 @@
 					"requiredItems": [
 						{
 							"key": "smith_hammer",
-							"quantity": 1
+							"count": 1
 						}
 					],
 					"consumedItems": [
 						{
 							"key": "iron_lump",
-							"quantity": 1
+							"count": 1
 						}
 					],
 					"rewardedItems": [
 						{
 							"key": "horse_shoe",
-							"quantity": 4
+							"count": 4
 						}
 					],
 					"imageKey": "bulk_good"
@@ -457,27 +457,27 @@
 					"requiredItems": [
 						{
 							"key": "mortar_pestel",
-							"quantity": 1
+							"count": 1
 						}
 					],
 					"consumedItems": [
 						{
 							"key": "redcap_mushroom_small",
-							"quantity": 2
+							"count": 2
 						},
 						{
 							"key": "water_bucket",
-							"quantity": 1
+							"count": 1
 						},
 						{
 							"key": "glass_vial",
-							"quantity": 1
+							"count": 1
 						}
 					],
 					"rewardedItems": [
 						{
 							"key": "health_potion_small",
-							"quantity": 1
+							"count": 1
 						}
 					],
 					"imageKey": "alchemy"
@@ -637,7 +637,7 @@
 				},
 				{
 					"typeStr": "3",
-					"name": "quantity"
+					"name": "count"
 				}
 			]
 		},
@@ -656,7 +656,7 @@
 				},
 				{
 					"typeStr": "3",
-					"name": "quantity"
+					"name": "count"
 				}
 			]
 		},
@@ -675,7 +675,7 @@
 				},
 				{
 					"typeStr": "3",
-					"name": "quantity"
+					"name": "count"
 				}
 			]
 		},

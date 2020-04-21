@@ -6,7 +6,7 @@ import { Hero } from './shared/hero.model';
 import { Location } from '../locations/shared/location.model';
 import { Quest } from '../quests/shared/quest.model';
 import { Craft } from '../crafts/shared/craft.model';
-import { ItemQuantity } from '../items/shared/item-quantity.model';
+import { KeyCount } from '../common/key-count.model';
 import { Item } from '../items/shared/item.model';
 
 import { GameDataService } from '../common/game-data/game-data.service';
@@ -34,7 +34,7 @@ export class HeroService {
     let hero: Hero = {
       name: name,
       gold: 50,
-      questsCompleted: 0,
+      questsCompleted: [],
       locations: this._gameData.getUnlockedLocations(),
       crafts: this._gameData.getUnlockedCrafts(),
       quests: this._gameData.getUnlockedQuests(),
@@ -133,6 +133,16 @@ export class HeroService {
     this.currentHero.quests = this.currentHero.quests.filter(quest => quest.key === key);
   }
 
+  completeQuest(key: string): void {
+    let kc: KeyCount = this.currentHero.questsCompleted.find(kc => kc.key === key);
+    if(kc) {
+      kc.count += 1;
+    } else {
+      kc = { key: key, count: 1 };
+      this.currentHero.questsCompleted.push(kc);
+    }
+  }
+
   undertakeQuest(key: string): boolean {
     if(!this.canUndertakeQuest(key)) return false;
     let q = this.getQuest(key);
@@ -145,7 +155,7 @@ export class HeroService {
     /**
      * Add item
      **/
-    this.currentHero.questsCompleted += 1;
+    this.completeQuest(key);
     this.currentHero.gold += q.rewardedGold;
     this.addInventoryItems(q.rewardedItems);
     this.addLocations(q.unlockLocationKeys);
@@ -169,7 +179,7 @@ export class HeroService {
     if(!q || !q.unlocked) return false;
 
     if(this.currentHero.gold < q.requiredGold) return false;
-    if(!this.hasItemQuantities(this.combineItemQuantities(q.requiredItems, q.consumedItems))) return false;
+    if(!this.hasItemQuantities(this.combineKeyCounts(q.requiredItems, q.consumedItems))) return false;
 
     return true;
   }
@@ -194,70 +204,70 @@ export class HeroService {
     this.currentHero.crafts.push(c);
   }
 
-  getInventory(): ItemQuantity[] {
+  getInventory(): KeyCount[] {
     return this.currentHero.inventory;
   }
 
-  getItemQuantity(key: string): ItemQuantity {
-    return this.currentHero.inventory.find(itemquantity => itemquantity.key === key);
+  getKeyCount(key: string): KeyCount {
+    return this.currentHero.inventory.find(itemcount => itemcount.key === key);
   }
 
-  combineItemQuantities(items1: ItemQuantity[], items2: ItemQuantity[]): ItemQuantity[] {
-    let results: ItemQuantity[] = [];
+  combineKeyCounts(items1: KeyCount[], items2: KeyCount[]): KeyCount[] {
+    let results: KeyCount[] = [];
     for(let item of items1) {
-      let iq: ItemQuantity = { key: item.key, quantity: item.quantity };
+      let iq: KeyCount = { key: item.key, count: item.count };
       results.push(iq);
     }
 
     for(let item of items2) {
-      let iq: ItemQuantity = results.find(i => i.key === item.key);
+      let iq: KeyCount = results.find(i => i.key === item.key);
       if(iq) {
-        iq.quantity += item.quantity;
+        iq.count += item.count;
       } else {
-        iq = {key: item.key, quantity: item.quantity }
+        iq = {key: item.key, count: item.count }
         results.push(iq);
       }
     }
     return results;
   }
 
-  removeInventoryItems(items: ItemQuantity[]): void {
+  removeInventoryItems(items: KeyCount[]): void {
     for(let item of items) {
       this.removeInventoryItem(item);
     }
   }
 
-  removeInventoryItem(item: ItemQuantity): void {
-    let iq = this.getItemQuantity(item.key);
-    iq.quantity -= item.quantity;
+  removeInventoryItem(item: KeyCount): void {
+    let iq = this.getKeyCount(item.key);
+    iq.count -= item.count;
   }
 
-  addInventoryItems(items: ItemQuantity[]): void {
+  addInventoryItems(items: KeyCount[]): void {
     for(let item of items) {
       this.addInventoryItem(item);
     }
   }
 
-  addInventoryItem(item: ItemQuantity): void {
-    let iq: ItemQuantity = this.getItemQuantity(item.key);
+  addInventoryItem(item: KeyCount): void {
+    let iq: KeyCount = this.getKeyCount(item.key);
     if(iq) {
-      iq.quantity += item.quantity;
+      iq.count += item.count;
     } else {
-      iq = { key: item.key, quantity: item.quantity };
+      iq = { key: item.key, count: item.count };
       this.currentHero.inventory.push(iq);
     }
   }
 
-  hasItemQuantities(items: ItemQuantity[] ): boolean {
+  hasItemQuantities(items: KeyCount[] ): boolean {
     for(let iq of items) {
-      if(!this.hasItemQuantity(iq)) return false;
+      if(!this.hasKeyCount(iq)) return false;
     }
     return true;
   }
 
-  hasItemQuantity(item: ItemQuantity ): boolean {
-    let iq: ItemQuantity = this.getItemQuantity(item.key);
-    if(iq && iq.quantity >= item.quantity) return true;
+  hasKeyCount(item: KeyCount ): boolean {
+    let iq: KeyCount = this.getKeyCount(item.key);
+    if(iq && iq.count >= item.count) return true;
     return false;
   }
 }

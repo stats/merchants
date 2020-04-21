@@ -1,4 +1,4 @@
-import { ItemQuantity } from '../../items/shared/item-quantity.model';
+import { KeyCount } from '../../common/key-count.model';
 
 export interface Quest {
   name: string;
@@ -10,10 +10,10 @@ export interface Quest {
   repeatable: boolean;
   unlocked: boolean;
   requiredGold: number;
-  requiredItems: ItemQuantity[];
-  consumedItems: ItemQuantity[];
+  requiredItems: KeyCount[];
+  consumedItems: KeyCount[];
   rewardedGold: number,
-  rewardedItems: ItemQuantity[];
+  rewardedItems: KeyCount[];
   unlockQuestKeys: string[];
   unlockLocationKeys: string[];
   unlockCraftKeys: string[];

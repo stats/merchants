@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { TitleDescriptionComponent } from './common/title-description/title-description.component';
-import { ItemQuantityComponent } from './items/item-quantity/item-quantity.component';
+import { ItemCountComponent } from './items/item-count/item-count.component';
 import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
 import { HeroListComponent } from './heroes/hero-list/hero-list.component';
 import { LocationListComponent } from './locations/location-list/location-list.component';
@@ -28,7 +28,7 @@ import { GameDataService } from './common/game-data/game-data.service';
   declarations: [
     AppComponent,
     TitleDescriptionComponent,
-    ItemQuantityComponent,
+    ItemCountComponent,
     PageNotFoundComponent,
     HeroListComponent,
     LocationListComponent,
