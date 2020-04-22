@@ -97,6 +97,18 @@ ul.collection {
   image-rendering: crisp-edges;
 }
 
+.collection .collection-item.expandable {
+  background-image: url('/assets/images/interface/arrow-down.png') !important;
+}
+
+.collection.sellable .collection-item {
+  background-image: none !important;
+}
+
+.collection.sellable .collection-item {
+  justify-content: space-between;
+}
+
 .collection .collection-item:last-child {
   border-bottom: none;
 }
@@ -117,6 +129,14 @@ ul.collection {
 
 .collection .multiline {
   display: inline-block;
+}
+
+.collection img {
+  padding-right: 4px;
+}
+
+h2 img {
+  padding-right: 4px;
 }
 
 .card {
@@ -152,6 +172,11 @@ ul.collection {
   background-color: #2bbbad;
 }
 
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 .input-field {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -182,6 +207,18 @@ h2{
 .item-count {
   display: flex;
   align-items: center;
+}
+
+.quest.modal {
+  text-align: center;
+}
+
+.quest.modal span, .quest.modal div {
+  justify-content: center;
+}
+
+.quest .description, .rewards {
+  margin-bottom: 1rem;
 }
 
 .modal {

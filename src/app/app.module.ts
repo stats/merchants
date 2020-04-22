@@ -19,6 +19,10 @@ import { InventoryComponent } from './inventory/inventory.component';
 
 import { HeroService } from './heroes/hero.service';
 import { GameDataService } from './common/game-data/game-data.service';
+import { ItemCountComponent } from './common/item-count/item-count.component';
+import { RewardUnlockComponent } from './common/reward-unlock/reward-unlock.component';
+import { RewardDetailComponent } from './common/reward-detail/reward-detail.component';
+import { ItemSellableComponent } from './common/item-sellable/item-sellable.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { GameDataService } from './common/game-data/game-data.service';
     CraftListComponent,
     CraftDetailComponent,
     ItemDetailComponent,
-    InventoryComponent
+    InventoryComponent,
+    ItemCountComponent,
+    RewardUnlockComponent,
+    RewardDetailComponent,
+    ItemSellableComponent,
   ],
   imports: [
     BrowserModule,

@@ -35,7 +35,7 @@ export class Hero implements IHero {
   }
 
   hasCompletedQuest(key: string): boolean {
-    return this.completedQuests.find(q => q.key === key) !== null;
+    return this.completedQuests.find(q => q.key === key) != null;
   }
 
   completeQuest(key: string): void {

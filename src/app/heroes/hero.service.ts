@@ -234,4 +234,33 @@ export class HeroService {
     return results;
   }
 
+  costWithMarkup(cost: number, markup: number): number {
+    return Math.max(1, Math.round(cost * markup));
+  }
+
+  canBuyItem(cost: number) {
+    return this.currentHero.gold >= cost;
+  }
+
+  buyItem(item: Item, markup: number) {
+    let cost: number = this.costWithMarkup(item.cost, markup)
+    if(this.canBuyItem(cost)) {
+      this.currentHero.addItem({key: item.key, count: 1});
+      this.currentHero.gold -= cost;
+    }
+    this.commitCurrentHeroChanges();
+    this.saveHeroes();
+  }
+
+  canSellItem(kc: KeyCount) {
+    return this.currentHero.hasItemCount(kc);
+  }
+
+  sellItem(item: Item, markup: number) {
+    if(this.canSellItem({key:item.key, count: 1})) {
+      this.currentHero.removeItem({key: item.key, count: 1});
+      this.currentHero.gold += this.costWithMarkup(item.cost, markup);
+    }
+  }
+
 }

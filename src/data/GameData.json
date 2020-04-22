@@ -613,6 +613,9 @@
 					"unlockQuestKeys": [
 						{
 							"key": "pittmedden_well_water"
+						},
+						{
+							"key": "pittmedden_store_work"
 						}
 					],
 					"unlockLocationKeys": [
@@ -650,6 +653,24 @@
 					"unlockLocationKeys": [],
 					"unlockCraftKeys": [],
 					"rewardedGold": 0
+				},
+				{
+					"key": "pittmedden_store_work",
+					"imageKey": "broom",
+					"name": "Work in the shop",
+					"description": "Sweep, load the shelves and help with orders in the general store",
+					"parentLocationKey": "pittmedden_generalstore",
+					"completeText": "You eaned some money",
+					"repeatable": true,
+					"unlocked": false,
+					"requiredGold": 0,
+					"requiredItems": [],
+					"consumedItems": [],
+					"rewardedItems": [],
+					"unlockQuestKeys": [],
+					"unlockLocationKeys": [],
+					"unlockCraftKeys": [],
+					"rewardedGold": 5
 				}
 			],
 			"separators": [],

@@ -35,12 +35,9 @@
 
   <div class="sells-items" *ngIf="heroService.getSellsItemsByLocation(currentLocation.key).length > 0">
     <h3>Vendor is selling</h3>
-    <ul class="collection">
-      <li *ngFor="let item of heroService.getSellsItemsByLocation(currentLocation.key)" class="collection-item" [routerLink]="['/items', item.key]">
-        <img src="/assets/images/items/{{item.imageKey}}.png" width="32" height="32" [alt]="item.name + ' - ' + item.description"/>
-        <span class="title">{{item.name}}</span>
-      </li>
-    </ul>
+    <app-item-sellable
+      [items]="heroService.getSellsItemsByLocation(currentLocation.key)"
+      [sellsMarkup]="currentLocation.sellsMarkup"></app-item-sellable>
   </div>
 
   <div class="buys-items" *ngIf="heroService.getBuysItemsByLocation(currentLocation.key).length > 0">
