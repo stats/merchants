@@ -1,5 +1,4 @@
-<div>
-
+<div class=".breadcrumb">
   <a [routerLink]="['/locations', currentQuest.parentLocationKey]" *ngIf="currentQuest.parentLocationKey"> &lt; {{heroService.getLocation(currentQuest.parentLocationKey).name}}</a>
 </div>
 

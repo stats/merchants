@@ -1,4 +1,8 @@
-<p>Locations</p>
+<div class="breadcrumb">
+  Locations
+</div>
+
+<p>Select a location to travel to</p>
 
 <ul class="locations collection">
   <li *ngFor="let location of heroService.getAvailableRootLocations()" class="collection-item" [routerLink]="['/locations', location.key]">

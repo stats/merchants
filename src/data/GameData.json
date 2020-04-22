@@ -576,7 +576,7 @@
 				{
 					"key": "pittmedden_explore_001",
 					"name": "Explore Pittmedden",
-					"description": "After entering Pittmedden town the first task is to start exploring and learn what services exist in the town",
+					"description": "You are in the Pittmedden region. You see smoke in the distance maybe you can find the town in that direction.",
 					"parentLocationKey": "pittmedden",
 					"repeatable": false,
 					"unlocked": true,
@@ -596,21 +596,25 @@
 					],
 					"unlockCraftKeys": [],
 					"rewardedGold": 0,
-					"completeText": "You have found the General Store and the Central Square Well",
+					"completeText": "You have found the Town of Pittmedden.",
 					"imageKey": "explore"
 				},
 				{
 					"key": "pittmedden_town_explore_001",
 					"name": "Explore Pittmedden Town",
-					"description": "",
+					"description": "After entering Pittmedden town the first task is to start exploring and learn what services exist in the town",
 					"parentLocationKey": "pittmedden_town",
-					"repeatable": false,
+					"repeatable": true,
 					"unlocked": false,
 					"requiredGold": 0,
 					"requiredItems": [],
 					"consumedItems": [],
 					"rewardedItems": [],
-					"unlockQuestKeys": [],
+					"unlockQuestKeys": [
+						{
+							"key": "pittmedden_well_water"
+						}
+					],
 					"unlockLocationKeys": [
 						{
 							"key": "pittmedden_well"
@@ -621,8 +625,30 @@
 					],
 					"unlockCraftKeys": [],
 					"rewardedGold": 0,
-					"completeText": "",
+					"completeText": "You have found the General Store and the Central Square Well",
 					"imageKey": "explore"
+				},
+				{
+					"key": "pittmedden_well_water",
+					"imageKey": "water_bucket",
+					"name": "Water from the Well",
+					"description": "Get a bucket of water from the well",
+					"parentLocationKey": "pittmedden_well",
+					"completeText": "You have got a bucket of water",
+					"repeatable": true,
+					"unlocked": false,
+					"requiredGold": 0,
+					"requiredItems": [],
+					"consumedItems": [],
+					"rewardedItems": [
+						{
+							"key": "water_bucket"
+						}
+					],
+					"unlockQuestKeys": [],
+					"unlockLocationKeys": [],
+					"unlockCraftKeys": [],
+					"rewardedGold": 0
 				}
 			],
 			"separators": [],
@@ -710,7 +736,12 @@
 			},
 			"separators": [],
 			"lines": [],
-			"columns": []
+			"columns": [
+				{
+					"typeStr": "6:Items",
+					"name": "key"
+				}
+			]
 		},
 		{
 			"name": "Quests@unlockQuestKeys",

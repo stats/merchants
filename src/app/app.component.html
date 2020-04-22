@@ -1,5 +1,5 @@
 <nav>
-  <a [routerLink]="['/heroes']" class="brand-logo">Merchants</a>
+  <a [routerLink]="['/heroes']" class="logo">Merchants</a>
 </nav>
 
 <main>
@@ -9,12 +9,12 @@
 </main>
 
 <div class="footer-fixed" *ngIf="currentHero">
-	<footer class="red lighten-2">
-		<nav class="z-depth-0">
+	<footer>
+		<nav>
 			<div class="nav-wrapper">
 				<ul>
-          <li><img src="/assets/images/heroes/hero001.png" width="32" height="32" [alt]="currentHero.name"/> {{currentHero.name}}</li>
-          <li><img src="/assets/images/interface/gold.png" width="32" height="32" alt="Gold" title="Gold"> {{currentHero.gold}}</li>
+          <li><a><img src="/assets/images/heroes/hero001.png" width="32" height="32" [alt]="currentHero.name" [title]="currentHero.name"/></a></li>
+          <li><a><img src="/assets/images/interface/gold.png" width="32" height="32" alt="Gold" title="Current Gold: {{currentHero.gold}}"></a></li>
           <li><a [routerLink]="['/locations']"><img src="/assets/images/interface/map.png" width="32" height="32" alt="Locations" title="Locations"></a></li>
           <li><a [routerLink]="['/crafts']"><img src="/assets/images/interface/hammer.png" width="32" height="32" alt="Craft" title="Craft"></a></li>
           <li><a [routerLink]="['/items']"> <img src="/assets/images/interface/chest.png" width="32" height="32" alt="Inventory" title="Inventory"></a></li>

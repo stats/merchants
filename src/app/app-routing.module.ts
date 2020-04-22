@@ -12,10 +12,11 @@ import { QuestDetailComponent } from './quests/quest-detail/quest-detail.compone
 import { CraftListComponent } from './crafts/craft-list/craft-list.component';
 import { CraftDetailComponent } from './crafts/craft-detail/craft-detail.component';
 
-import { ItemListComponent } from './items/item-list/item-list.component';
 import { ItemDetailComponent } from './items/item-detail/item-detail.component';
 
 import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
+
+import { InventoryComponent } from './inventory/inventory.component';
 
 const appRoutes: Routes = [
   { path: 'heroes', component: HeroListComponent },
@@ -24,7 +25,7 @@ const appRoutes: Routes = [
   { path: 'quests/:key', component: QuestDetailComponent },
   { path: 'crafts', component: CraftListComponent },
   { path: 'crafts/:key', component: CraftDetailComponent },
-  { path: 'items', component: ItemListComponent },
+  { path: 'inventroy', component: InventoryComponent },
   { path: 'items/:key', component: ItemDetailComponent },
   { path: '', redirectTo: '/heroes', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
