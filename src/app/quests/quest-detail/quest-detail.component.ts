@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { HeroService } from '../../heroes/hero.service';
 import { GameDataService } from '../../common/game-data/game-data.service';
@@ -13,8 +13,9 @@ import { Quest } from '../shared/quest.model';
 export class QuestDetailComponent implements OnInit {
 
   currentQuest: Quest;
+  showQuestCompleted: boolean = false;
 
-  constructor(public heroService: HeroService, public gameDataService: GameDataService, private route: ActivatedRoute) { }
+  constructor(public heroService: HeroService, public gameDataService: GameDataService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -27,7 +28,12 @@ export class QuestDetailComponent implements OnInit {
   }
 
   undertakeQuest(key: string): void {
+    this.showQuestCompleted = true;
     this.heroService.undertakeQuest(key);
+  }
+
+  closeQuest() {
+    this.router.navigate(['/locations', this.currentQuest.parentLocationKey]);
   }
 
 }

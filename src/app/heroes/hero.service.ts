@@ -30,12 +30,42 @@ export class HeroService {
     for(let i = 0; i < this.heroes.length; i++) {
       this.heroes[i] = new Hero(this.heroes[i]);
     }
-    console.log(this.heroes);
     if(this.heroes == null) {
       this.heroes = [];
     }
+
+    this.repairHeroData();
+
     this.currentHeroIndex = parseInt(localStorage.getItem('currentHeroIndex'));
     this.currentHero$ = new BehaviorSubject<IHero>(this.currentHero);
+  }
+
+  /** This repair assumes locations and crafts are not deleted **/
+  repairHeroData(): void {
+    for(let hero of this.heroes) {
+      for(let cq of hero.completedQuests) {
+        let q: Quest = this._gameData.getQuest(cq.key);
+        for(let ul of q.unlockLocationKeys) {
+          if(!hero.hasLocation(ul.key)) {
+            console.log("Repairing location", ul.key);
+            hero.addLocation(ul.key);
+          }
+        }
+        for(let uc of q.unlockCraftKeys) {
+          if(!hero.hasCraft(uc.key)) {
+            console.log("Repairing craft", uc.key);
+            hero.addCraft(uc.key);
+          }
+        }
+        for(let uq of q.unlockQuestKeys) {
+          if(!hero.hasQuest(uq.key) && !hero.hasCompletedQuest(uq.key)) {
+            console.log("Repairing quest", uq.key);
+            hero.addQuest(uq.key);
+          }
+        }
+      }
+    }
+    this.saveHeroes();
   }
 
   createHero(name: string) {
@@ -109,7 +139,6 @@ export class HeroService {
 
   getAvailableQuestsByLocation(key: string): Quest[] {
     let quests: Quest[] = this._gameData.getQuestsByParent(key);
-    console.log('all quests', quests, key);
     return quests.filter(q => this.currentHero.hasQuest(q.key));
   }
 

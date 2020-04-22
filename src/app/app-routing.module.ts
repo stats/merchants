@@ -25,7 +25,7 @@ const appRoutes: Routes = [
   { path: 'quests/:key', component: QuestDetailComponent },
   { path: 'crafts', component: CraftListComponent },
   { path: 'crafts/:key', component: CraftDetailComponent },
-  { path: 'inventroy', component: InventoryComponent },
+  { path: 'inventory', component: InventoryComponent },
   { path: 'items/:key', component: ItemDetailComponent },
   { path: '', redirectTo: '/heroes', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }

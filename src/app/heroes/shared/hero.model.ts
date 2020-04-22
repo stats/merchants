@@ -34,6 +34,10 @@ export class Hero implements IHero {
     return this.completedQuests.find(q => q.key === key);
   }
 
+  hasCompletedQuest(key: string): boolean {
+    return this.completedQuests.find(q => q.key === key) !== null;
+  }
+
   completeQuest(key: string): void {
     let cq: KeyCount = this.getCompletedQuest(key);
     if(cq) {
@@ -53,8 +57,12 @@ export class Hero implements IHero {
     this.locations.push({key: key});
   }
 
+  hasCraft(key: string): boolean{
+    return this.crafts.find(k => k.key === key) != null;
+  }
+
   addCraft(key: string): void {
-    if(this.crafts.find(k => k.key === key)) return;
+    if(this.hasCraft(key)) return;
     this.locations.push({key: key});
   }
 

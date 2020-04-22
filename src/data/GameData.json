@@ -604,7 +604,7 @@
 					"name": "Explore Pittmedden Town",
 					"description": "After entering Pittmedden town the first task is to start exploring and learn what services exist in the town",
 					"parentLocationKey": "pittmedden_town",
-					"repeatable": true,
+					"repeatable": false,
 					"unlocked": false,
 					"requiredGold": 0,
 					"requiredItems": [],
@@ -642,7 +642,8 @@
 					"consumedItems": [],
 					"rewardedItems": [
 						{
-							"key": "water_bucket"
+							"key": "water_bucket",
+							"count": 1
 						}
 					],
 					"unlockQuestKeys": [],
@@ -740,6 +741,10 @@
 				{
 					"typeStr": "6:Items",
 					"name": "key"
+				},
+				{
+					"typeStr": "3",
+					"name": "count"
 				}
 			]
 		},

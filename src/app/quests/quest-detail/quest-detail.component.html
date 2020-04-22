@@ -14,7 +14,7 @@
   </div>
 
   <div class="actions" *ngIf="canUndertakeQuest(currentQuest.key)">
-    <button type="button" class="btn-large" (click)="undertakeQuest(currentQuest.key)">Undertake Quest</button>
+    <button type="button" class="btn" (click)="undertakeQuest(currentQuest.key)">Undertake Quest</button>
   </div>
 
   <div class="requires-gold" *ngIf="currentQuest.requiredGold > 0">
@@ -30,7 +30,7 @@
   </div>
   <div class="consumes" *ngIf="currentQuest.consumedItems.length > 0">
     <h3>Consumed Items</h3>
-    <div class="item-count" *ngFor="let itemQuantity in currentQuest.consumedItems">
+    <div class="item-count" *ngFor="let itemQuantity of currentQuest.consumedItems">
       <img src="/assets/images/items/{{gameDataService.getItem(itemQuantity.key).imageKey}}.png" width="32" height="32">
       <span ngIf="itemQuantity.count > 1">x {{itemQuantity.count}}</span>
     </div>
@@ -40,10 +40,10 @@
     <div *ngIf="currentQuest.rewardedGold">Rewarded Gold: {{currentQuest.rewardedGold}}</div>
     <div *ngIf="currentQuest.rewardedItems.length > 0">
       <h4>Items</h4>
-      <div class="item-count" *ngFor="let itemQuantity in currentQuest.rewardedItems" >
-        <img src="/assets/images/items/{{gameDataService.getItem(itemQuantity.key).imageKey}}.png" alt="{{gameDataService.getItem(itemQuantity.key).name}} - {{gameDataService.getItem(itemQuantity.key).description}}" width="32" height="32">
-        <span ngIf="itemQuantity.count > 1">x {{itemQuantity.count}}</span>
-      </div>
+      <span class="item-count" *ngFor="let itemQuantity of currentQuest.rewardedItems" >
+        <img src="/assets/images/items/{{gameDataService.getItem(itemQuantity.key).imageKey}}.png" alt="{{gameDataService.getItem(itemQuantity.key).name}} - {{gameDataService.getItem(itemQuantity.key).description}}" title="{{gameDataService.getItem(itemQuantity.key).name}} - {{gameDataService.getItem(itemQuantity.key).description}}" width="32" height="32">
+        <span>x {{itemQuantity.count}}</span>
+      </span>
     </div>
     <div *ngIf="currentQuest.unlockCraftKeys.length > 0">
       <h4>Rewarded Crafting Recipes</h4>
@@ -64,6 +64,46 @@
       <div *ngFor="let questKey of currentQuest.unlockQuestKeys">
         <img src="/assets/images/quests/{{gameDataService.getQuest(questKey.key).imageKey}}.png" width="32" height="32"> - {{gameDataService.getQuest(questKey.key).name}}
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" *ngIf="showQuestCompleted">
+  <div class="card">
+    <div class="card-content">
+      <h1>{{currentQuest.name}} Completed!</h1>
+      <div class="rewards">
+        <h3>You received</h3>
+        <div *ngIf="currentQuest.rewardedGold">Rewarded Gold: {{currentQuest.rewardedGold}}</div>
+        <div *ngIf="currentQuest.rewardedItems.length > 0">
+          <h4>Items</h4>
+          <span class="item-count" *ngFor="let itemQuantity of currentQuest.rewardedItems" >
+            <img src="/assets/images/items/{{gameDataService.getItem(itemQuantity.key).imageKey}}.png" alt="{{gameDataService.getItem(itemQuantity.key).name}} - {{gameDataService.getItem(itemQuantity.key).description}}" title="{{gameDataService.getItem(itemQuantity.key).name}} - {{gameDataService.getItem(itemQuantity.key).description}}" width="32" height="32">
+            <span>x {{itemQuantity.count}}</span>
+          </span>
+        </div>
+        <div *ngIf="currentQuest.unlockCraftKeys.length > 0">
+          <h4>Rewarded Crafting Recipes</h4>
+          <div *ngFor="let craftKey of currentQuest.unlockCraftKeys">
+            <div *ngFor="let questKey of currentQuest.unlockQuestKeys">
+              <img src="/assets/images/crafts/{{gameDataService.getCraft(craftKey.key).imageKey}}.png" width="32" height="32"> - {{gameDataService.getCraft(craftKey.key).name}}
+            </div>
+          </div>
+        </div>
+        <div *ngIf="currentQuest.unlockLocationKeys.length > 0">
+          <h4>Discovers Locations</h4>
+          <div *ngFor="let locationKey of currentQuest.unlockLocationKeys">
+            <img src="/assets/images/locations/{{gameDataService.getLocation(locationKey.key).imageKey}}.png" width="32" height="32"> - {{gameDataService.getLocation(locationKey.key).name}}
+          </div>
+        </div>
+        <div *ngIf="currentQuest.unlockQuestKeys.length > 0">
+          <h4>Discovers Quests</h4>
+          <div *ngFor="let questKey of currentQuest.unlockQuestKeys">
+            <img src="/assets/images/quests/{{gameDataService.getQuest(questKey.key).imageKey}}.png" width="32" height="32"> - {{gameDataService.getQuest(questKey.key).name}}
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn" (click)="closeQuest()">And there was much rejoicing</button>
     </div>
   </div>
 </div>

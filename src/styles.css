@@ -179,6 +179,21 @@ h2{
   color: blue;
 }
 
+.item-count {
+  display: flex;
+  align-items: center;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 96vw;
+  height: 96vh;
+  background-color: rgba(0,0,0,0.7);
+  padding: 2vh 2vw;
+}
+
 .navbar-fixed nav {
 	padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }

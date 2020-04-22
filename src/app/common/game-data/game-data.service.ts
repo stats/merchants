@@ -23,8 +23,6 @@ export class GameDataService {
     this._crafts = this._data['sheets'].find(c => c.name === "Crafts")['lines'];
     this._items = this._data['sheets'].find(i => i.name === "Items")['lines'];
     this._quests = this._data['sheets'].find(q => q.name === "Quests")['lines'];
-
-    console.log(this._quests);
   }
 
   getData(): any {
