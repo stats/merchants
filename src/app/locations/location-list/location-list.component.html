@@ -7,7 +7,11 @@
 <ul class="locations collection">
   <li *ngFor="let location of heroService.getAvailableRootLocations()" class="collection-item" [routerLink]="['/locations', location.key]">
     <div>
-      <img src="/assets/images/locations/{{location.imageKey}}.png" width="32" height="32" [alt]="location.name + ' - ' + location.description"/>
+      <img src="/assets/images/locations/{{location.imageKey}}.png"
+           width="32"
+           height="32"
+           [alt]="location.name + ' - ' + location.description"
+           class="icon"/>
       <span class="title">{{location.name}}</span>
     </div>
   </li>

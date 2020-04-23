@@ -4,7 +4,8 @@
       <img src="/assets/images/items/{{item.imageKey}}.png"
            width="32"
            height="32"
-           [alt]="item.name + ' - ' + item.description"/>
+           [alt]="item.name + ' - ' + item.description"
+           class="icon"/>
       <span class="title">{{ item.name }} for {{ itemCost(item.cost) }} <img src="/assets/images/interface/gold.png" width="16" height="16" alt="gold"></span>
     </span>
     <button type="button" class="btn" (click)="buy(item)" [disabled]="!canBuy(item)">Buy</button>

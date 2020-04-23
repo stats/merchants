@@ -96,6 +96,10 @@ export class Hero implements IHero {
     }
   }
 
+  getInventory(): KeyCount[] {
+    return this.inventory;
+  }
+
   removeItem(item: KeyCount): void {
     let k = this.getItem(item.key);
     if(k) {

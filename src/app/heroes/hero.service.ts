@@ -263,4 +263,12 @@ export class HeroService {
     }
   }
 
+  getItem(key: string): Item {
+    return this._gameData.getItem(key);
+  }
+
+  getInventory(): KeyCount[] {
+    return this.currentHero.getInventory();
+  }
+
 }

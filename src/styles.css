@@ -123,20 +123,21 @@ ul.collection {
   margin: auto 0;
 }
 
-.collection .collection-item>img {
+.collection .collection-item img {
   margin-right: 10px;
+}
+
+.icon {
+  border-radius: 3px;
+  border: 2px solid #333;
 }
 
 .collection .multiline {
   display: inline-block;
 }
 
-.collection img {
-  padding-right: 4px;
-}
-
 h2 img {
-  padding-right: 4px;
+  margin-right: 4px;
 }
 
 .card {
