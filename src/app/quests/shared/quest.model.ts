@@ -3,7 +3,7 @@ import { Key, KeyCount } from '../../common/key-count.model';
 export interface Quest {
   name: string;
   description: string;
-  complete: string;
+  completeText: string;
   key: string;
   imageKey: string;
   parentLocationKey: string;

@@ -8,7 +8,7 @@
          height="32"
          [alt]="heroService.getItem(kc.key).name + ' - ' + heroService.getItem(kc.key).description"
          [title]="heroService.getItem(kc.key).name + ' - ' + heroService.getItem(kc.key).description"
-         class="icon"/> x {{kc.count}}
+         class="icon"/> {{heroService.getItem(kc.key).name}} x {{kc.count}}
     </span>
   </li>
 </ul>

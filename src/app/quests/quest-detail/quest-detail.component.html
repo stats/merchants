@@ -41,7 +41,7 @@
   <div class="card">
     <div class="card-content">
       <h1>{{currentQuest.name}} Completed!</h1>
-
+      <p>{{currentQuest.completeText}}</p>
       <app-reward-detail [quest]="currentQuest"></app-reward-detail>
 
       <button type="button" class="btn" (click)="closeQuest()">And there was much rejoicing</button>

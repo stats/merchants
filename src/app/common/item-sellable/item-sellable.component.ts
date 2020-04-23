@@ -11,21 +11,21 @@ import { HeroService } from '@core/heroes/hero.service';
 export class ItemSellableComponent {
 
   @Input() items: Item[];
-  @Input() sellsMarkup: number;
+  @Input() buysMarkup: number;
 
   constructor(private heroService: HeroService) { }
 
   itemCost(cost: number) {
-    return this.heroService.costWithMarkup(cost, this.sellsMarkup);
+    return this.heroService.costWithMarkup(cost, this.buysMarkup);
   }
 
-  canBuy(item: Item): boolean {
-    return this.heroService.canBuyItem(this.itemCost(item.cost));
+  canSell(item: Item): boolean {
+    return this.heroService.canSellItem({key: item.key, count: 1});
   }
 
-  buy(item: Item): void {
-    if(this.canBuy(item)) {
-      this.heroService.buyItem(item, this.sellsMarkup);
+  sell(item: Item): void {
+    if(this.canSell(item)) {
+      this.heroService.sellItem(item, this.buysMarkup);
     }
   }
 

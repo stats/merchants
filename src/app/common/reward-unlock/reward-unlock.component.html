@@ -1,6 +1,8 @@
-<div class="reward-unlock">>
-  <img src="/assets/images/{{type}}/{{imageKey}}.png"
-  width="32"
-  height="32"
-  class="icon"> - {{name}}
+<div class="reward-unlock">
+  <span>
+    <img src="/assets/images/{{type}}/{{imageKey}}.png"
+    width="32"
+    height="32"
+    class="icon">  {{type | titlecase | slice: 0:-1 }}: {{name}}
+  </span>
 </div>

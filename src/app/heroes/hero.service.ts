@@ -59,7 +59,7 @@ export class HeroService {
             }
           }
           for(let uq of q.unlockQuestKeys) {
-            if(!hero.hasQuest(uq.key) && !hero.hasCompletedQuest(uq.key)) {
+            if(!hero.hasQuest(uq.key) && ( !hero.hasCompletedQuest(uq.key) || this._gameData.getQuest(uq.key).repeatable)) {
               console.log("Repairing quest", uq.key);
               hero.addQuest(uq.key);
             }

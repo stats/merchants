@@ -214,8 +214,16 @@ h2{
   text-align: center;
 }
 
-.quest.modal span, .quest.modal div {
-  justify-content: center;
+.quest.modal span, .quest.modal div, .reward-unlock span {
+  display: flex;
+}
+
+.reward-unlock img {
+  margin-right: 10px;
+}
+
+.reward-unlock span {
+  align-items: center;
 }
 
 .quest .description, .rewards {

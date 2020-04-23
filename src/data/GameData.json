@@ -127,7 +127,7 @@
 				{
 					"key": "pittmedden_blacksmith",
 					"name": "Pittmedden Blacksmith",
-					"description": "",
+					"description": "The Pittmedden Blacksmith.",
 					"unlocked": false,
 					"sellsItemKeys": [],
 					"buysItemKeys": [],
@@ -163,12 +163,23 @@
 				{
 					"key": "pittmedden_mill",
 					"name": "Pittmedden Lumber Mill",
-					"description": "",
+					"description": "The pittmedden Lumber Mill.",
 					"unlocked": false,
-					"sellsItemKeys": [],
-					"buysItemKeys": [],
-					"buysMarkup": 0,
-					"sellsMarkup": 0,
+					"sellsItemKeys": [
+						{
+							"key": "axe_lumber_poor"
+						}
+					],
+					"buysItemKeys": [
+						{
+							"key": "log_soft"
+						},
+						{
+							"key": "log_hardwood"
+						}
+					],
+					"buysMarkup": 0.5,
+					"sellsMarkup": 1,
 					"imageKey": "mill",
 					"parentLocationKey": "pittmedden_town"
 				}
@@ -616,6 +627,9 @@
 						},
 						{
 							"key": "pittmedden_well_beg"
+						},
+						{
+							"key": "pittmedden_town_explore_002"
 						}
 					],
 					"unlockLocationKeys": [
@@ -661,7 +675,7 @@
 					"description": "As a last resort for the pittiful merchant you may put you hand out and beg",
 					"parentLocationKey": "pittmedden_well",
 					"completeText": "You got a coin.",
-					"repeatable": false,
+					"repeatable": true,
 					"unlocked": false,
 					"requiredGold": 0,
 					"requiredItems": [],
@@ -671,6 +685,31 @@
 					"unlockLocationKeys": [],
 					"unlockCraftKeys": [],
 					"rewardedGold": 1
+				},
+				{
+					"key": "pittmedden_town_explore_002",
+					"imageKey": "explore",
+					"name": "Explore Pittmedden Town II",
+					"description": "After finding the well and the store it is time to see what else is around.",
+					"parentLocationKey": "pittmedden_town",
+					"completeText": "You found the Pittmedden Lumber Mill and the Blacksmith",
+					"repeatable": true,
+					"unlocked": false,
+					"requiredGold": 0,
+					"requiredItems": [],
+					"consumedItems": [],
+					"rewardedItems": [],
+					"unlockQuestKeys": [],
+					"unlockLocationKeys": [
+						{
+							"key": "pittmedden_mill"
+						},
+						{
+							"key": "pittmedden_blacksmith"
+						}
+					],
+					"unlockCraftKeys": [],
+					"rewardedGold": 0
 				}
 			],
 			"separators": [],

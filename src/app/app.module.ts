@@ -23,6 +23,7 @@ import { ItemCountComponent } from './common/item-count/item-count.component';
 import { RewardUnlockComponent } from './common/reward-unlock/reward-unlock.component';
 import { RewardDetailComponent } from './common/reward-detail/reward-detail.component';
 import { ItemSellableComponent } from './common/item-sellable/item-sellable.component';
+import { ItemBuyableComponent } from './common/item-buyable/item-buyable.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ItemSellableComponent } from './common/item-sellable/item-sellable.comp
     RewardUnlockComponent,
     RewardDetailComponent,
     ItemSellableComponent,
+    ItemBuyableComponent,
   ],
   imports: [
     BrowserModule,

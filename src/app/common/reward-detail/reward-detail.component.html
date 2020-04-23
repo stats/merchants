@@ -17,7 +17,7 @@
     <app-reward-unlock *ngFor="let locationKey of quest.unlockLocationKeys"
       [name]="gameDataService.getLocation(locationKey.key).name"
       type="locations"
-      [imageKey]="gameDataService.getCraft(locationKey.key).imageKey"></app-reward-unlock>
+      [imageKey]="gameDataService.getLocation(locationKey.key).imageKey"></app-reward-unlock>
   </div>
   <div *ngIf="quest.unlockQuestKeys.length > 0">
     <app-reward-unlock *ngFor="let questKey of quest.unlockQuestKeys"
