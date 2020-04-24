@@ -7,6 +7,8 @@ import { Craft } from '../../crafts/shared/craft.model';
 import { Quest } from '../../quests/shared/quest.model';
 import { Item } from '../../items/shared/item.model';
 
+import { Key, KeyCount, ItemCount } from "@common/key-count.model";
+
 @Injectable()
 export class GameDataService {
 
@@ -49,6 +51,8 @@ export class GameDataService {
     return this._items.find(item => item.key === key);
   }
 
+
+
   getQuests(): Quest[] {
     return this._quests;
   }
@@ -83,6 +87,40 @@ export class GameDataService {
 
   getRootLocations(): Location[] {
     return this._locations.filter(l => l.parentLocationKey == null);
+  }
+
+  keysToLocations(keys: Key[]): Location[] {
+    let loc: Location[] = [];
+    for( let k of keys) {
+      loc.push(this.getLocation(k.key));
+    }
+    return loc;
+  }
+
+  keysToQuests(keys: Key[]): Quest[] {
+    let quest: Quest[] = [];
+    for( let k of keys) {
+      quest.push(this.getQuest(k.key));
+    }
+    return quest;
+  }
+
+  keysToCrafts(keys: Key[]): Craft[] {
+    let craft: Craft[] = [];
+    for( let k of keys) {
+      craft.push(this.getCraft(k.key));
+    }
+    return craft;
+  }
+
+  keyCountsToItemCount(keyCounts: KeyCount[]): ItemCount[] {
+    let ic: ItemCount[] = [];
+
+    for( let kc of keyCounts) {
+      ic.push({item: this.getItem(kc.key), count: kc.count});      
+    }
+
+    return ic;
   }
 
 }
