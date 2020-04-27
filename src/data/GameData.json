@@ -139,7 +139,7 @@
 				{
 					"key": "pittmedden_forest",
 					"name": "Pittmedden Forest",
-					"description": "",
+					"description": "The edge of the Pittmedden Forest",
 					"unlocked": false,
 					"sellsItemKeys": [],
 					"buysItemKeys": [],
@@ -150,13 +150,27 @@
 				},
 				{
 					"key": "pittmedden_alchemist",
-					"name": "Pittmedden Alchemist",
-					"description": "",
+					"name": "Alchemist's Hut",
+					"description": "A small hut hidden in a dense copse of trees with a sign reading 'alchemist'.",
 					"unlocked": false,
-					"sellsItemKeys": [],
-					"buysItemKeys": [],
-					"buysMarkup": 0,
-					"sellsMarkup": 0,
+					"sellsItemKeys": [
+						{
+							"key": "health_potion_small"
+						},
+						{
+							"key": "health_potion_medium"
+						},
+						{
+							"key": "redcap_mushroom_small"
+						}
+					],
+					"buysItemKeys": [
+						{
+							"key": "redcap_mushroom_small"
+						}
+					],
+					"buysMarkup": 0.6,
+					"sellsMarkup": 1,
 					"imageKey": "alchemist",
 					"parentLocationKey": "pittmedden_forest"
 				},
@@ -182,6 +196,149 @@
 					"sellsMarkup": 1,
 					"imageKey": "mill",
 					"parentLocationKey": "pittmedden_town"
+				},
+				{
+					"key": "pittmedden_forest_02",
+					"imageKey": "forest",
+					"name": "Deeper into Pittmedden Forest",
+					"description": "The trees are getting denser, the trees thicker, and paths almost no-existant",
+					"unlocked": false,
+					"sellsItemKeys": [],
+					"buysItemKeys": [],
+					"buysMarkup": 0,
+					"sellsMarkup": 0,
+					"parentLocationKey": "pittmedden_forest"
+				},
+				{
+					"key": "pittmedden_forest_gully",
+					"imageKey": "gully",
+					"name": "Pittmedden Forest Gulley",
+					"description": "A desent deeper into the pittmedden forest, a small stream runs along its base",
+					"unlocked": false,
+					"sellsItemKeys": [],
+					"buysItemKeys": [],
+					"buysMarkup": 0,
+					"sellsMarkup": 0
+				},
+				{
+					"key": "pittmedden_cavern",
+					"imageKey": "cavern",
+					"name": "Pittmedden Cavern",
+					"description": "A cavern at the end of the Pittmedden Forest, it looks like it leads under the hill in the center of Pittmedden",
+					"unlocked": false,
+					"sellsItemKeys": [],
+					"buysItemKeys": [],
+					"buysMarkup": 0,
+					"sellsMarkup": 0,
+					"parentLocationKey": "pittmedden_forest_gully"
+				},
+				{
+					"key": "pittmedden_mine",
+					"imageKey": "mine",
+					"name": "Pittmedden Mine",
+					"description": "A minable area near the center of the pittmedden mine",
+					"unlocked": false,
+					"sellsItemKeys": [],
+					"buysItemKeys": [],
+					"buysMarkup": 0,
+					"sellsMarkup": 0,
+					"parentLocationKey": "pittmedden_cavern"
+				},
+				{
+					"key": "pittmedden_depths_001",
+					"imageKey": "cavern",
+					"name": "Pittmedden Depths",
+					"description": "A steep and trecherous descent into the depths of Pittmedden",
+					"unlocked": false,
+					"sellsItemKeys": [],
+					"buysItemKeys": [],
+					"buysMarkup": 0,
+					"sellsMarkup": 0,
+					"parentLocationKey": "pittmedden_cavern"
+				},
+				{
+					"key": "pittmedden_depths_002",
+					"imageKey": "cavern",
+					"name": "Pittmedden Depths II",
+					"description": "The deepest area of Pittmedden, the air is hotter and the atmospher opressive",
+					"unlocked": false,
+					"sellsItemKeys": [],
+					"buysItemKeys": [],
+					"buysMarkup": 0,
+					"sellsMarkup": 0,
+					"parentLocationKey": "pittmedden_depths_001"
+				},
+				{
+					"key": "pittmedden_lava_fields",
+					"imageKey": "lava",
+					"name": "Pittmedden Lava Fields",
+					"description": "The oppressive depths of pittmedden open into an expansive lava field criscut with paths between large pools of molten lave",
+					"unlocked": false,
+					"sellsItemKeys": [],
+					"buysItemKeys": [],
+					"buysMarkup": 0,
+					"sellsMarkup": 0,
+					"parentLocationKey": "pittmedden_depths_002"
+				},
+				{
+					"key": "pittmedden_tavern",
+					"imageKey": "tavern",
+					"name": "Pittmedden Tavern",
+					"description": "The Pittmedden Tavern, filled with locals eating, drinking and being merry.",
+					"unlocked": false,
+					"sellsItemKeys": [],
+					"buysItemKeys": [],
+					"buysMarkup": 0,
+					"sellsMarkup": 0,
+					"parentLocationKey": "pittmedden_town"
+				},
+				{
+					"key": "pittmedden_manor",
+					"imageKey": "manor",
+					"name": "Pittmedden Manor",
+					"description": "A largish house and far from an actual mannor. The dwelling of the mayor of pittmedden.",
+					"unlocked": false,
+					"sellsItemKeys": [],
+					"buysItemKeys": [],
+					"buysMarkup": 0,
+					"sellsMarkup": 0,
+					"parentLocationKey": "pittmedden_town"
+				},
+				{
+					"key": "pittmedden_stables",
+					"imageKey": "stable",
+					"name": "Pittmedden Stables",
+					"description": "Stables with a selection of common horses",
+					"unlocked": false,
+					"sellsItemKeys": [],
+					"buysItemKeys": [],
+					"buysMarkup": 0,
+					"sellsMarkup": 0,
+					"parentLocationKey": "pittmedden_town"
+				},
+				{
+					"key": "pittmedden_lava_hole",
+					"imageKey": "lava",
+					"name": "Lava Hole",
+					"description": "A burned out hole cutting deeper towards the core of the world",
+					"unlocked": false,
+					"sellsItemKeys": [],
+					"buysItemKeys": [],
+					"buysMarkup": 0,
+					"sellsMarkup": 0,
+					"parentLocationKey": "pittmedden_lava_fields"
+				},
+				{
+					"key": "deeprock",
+					"imageKey": "town_underground",
+					"name": "Deeprock Clan Home",
+					"description": "A town cut into the deepest depths adjacent to the lava fields",
+					"unlocked": false,
+					"sellsItemKeys": [],
+					"buysItemKeys": [],
+					"buysMarkup": 0,
+					"sellsMarkup": 0,
+					"parentLocationKey": "pittmedden"
 				}
 			],
 			"separators": [],
@@ -385,6 +542,41 @@
 					"description": "A rod made from a hardwood log, more durable than a softwood variant",
 					"cost": 3,
 					"imageKey": "handle_wood"
+				},
+				{
+					"key": "health_potion_medium",
+					"imageKey": "health_potion",
+					"name": "Medium Health Potion",
+					"description": "A medium sized healing potion for curing more than small abrasions",
+					"cost": 100
+				},
+				{
+					"key": "ale_common",
+					"imageKey": "ale",
+					"name": "Common Ale",
+					"description": "A common ale with a light and refreshing taste",
+					"cost": 2
+				},
+				{
+					"key": "ale_strong",
+					"imageKey": "ale",
+					"name": "Strong Ale",
+					"description": "A stronger brew of ale with a medium body and a little kick",
+					"cost": 5
+				},
+				{
+					"key": "ale_dwarvish_common",
+					"imageKey": "ale",
+					"name": "Dwarvish Ale",
+					"description": "A extra strong brew built for the average dwarvish pallet",
+					"cost": 15
+				},
+				{
+					"key": "ale_dwarvish_strong",
+					"imageKey": "ale",
+					"name": "Strong Dwarvish Ale",
+					"description": "An ale that sates the thirsts of the heartiest of the dwarves. Warning: drinking may lead to unconciousness and deaths",
+					"cost": 35
 				}
 			],
 			"separators": [],
