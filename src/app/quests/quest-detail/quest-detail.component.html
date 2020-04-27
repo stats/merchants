@@ -18,19 +18,19 @@
     <h3>Required Gold</h3>
     {{currentQuest.requiredGold}}
   </div>
-  <div class="requires" *ngIf="currentQuest.requiredItems.length > 0">
+  <div class="requires" *ngIf="requiredItems > 0">
     <h3>Required Items</h3>
     <app-item-count
-      *ngFor="let itemQuantity of currentQuest.requiredItems"
-      [item]="gameDataService.getItem(itemQuantity.key)"
-      [itemCount]="itemQuantity.count"></app-item-count>
+      *ngFor="let itemCount of requiredItems"
+      [item]="itemCount.item"
+      [itemCount]="itemCount.count"></app-item-count>
   </div>
-  <div class="consumes" *ngIf="currentQuest.consumedItems.length > 0">
+  <div class="consumes" *ngIf="consumedItems.length > 0">
     <h3>Consumed Items</h3>
     <app-item-count
-      *ngFor="let itemQuantity of currentQuest.consumedItems"
-      [item]="gameDataService.getItem(itemQuantity.key)"
-      [itemCount]="itemQuantity.count"></app-item-count>
+      *ngFor="let itemCount of consumedItems"
+      [item]="itemCount.item"
+      [itemCount]="itemCount.count"></app-item-count>
   </div>
 
   <app-reward-detail [quest]="currentQuest"></app-reward-detail>
