@@ -1,12 +1,26 @@
+:root {
+  --color-1: #F7FFB7;
+  --color-2: #A5D145;
+  --color-3: #2A8037;
+  --color-4: #001B27;
+}
+
 /* You can add global styles to this file, and also import other style files */
 html, body {
   font-family: 'Roboto', sans-serif;
   width: 100%;
   padding: 0;
   margin: 0;
+  color: var(--color-4);
+  background-color: var(--color-1);
 }
 
-body {display: flex;min-height: 100vh; flex-direction: column;}
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
 main {
   flex: 1 0 auto;
 }
@@ -19,18 +33,18 @@ img {
 }
 
 nav {
-  color: #fff;
-  background-color: #ee6e73;
+  color: var(--color-1);
+  background-color: var(--color-3);
   width: 100%;
   height: 56px;
   line-height: 56px;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 2px 2px 0 var(--color-4), 0 3px 1px -2px var(--color-4), 0 1px 5px 0 var(--color-4);
 }
 
 nav a.logo {
   font-family: 'Anton', sans-serif;
   position: absolute;
-  color: #fff;
+  color: var(--color-1);
   display: inline-block;
   font-size: 2.1rem;
   padding: 0;
@@ -40,10 +54,8 @@ nav a.logo {
 }
 
 nav a.logo:hover {
-  background-color: rgba(0,0,0,0.067);
+  color: var(--color-4);
 }
-
-
 
 .hero-display {
   display: flex;
@@ -70,7 +82,7 @@ ul.collection {
   margin: .5rem 0 1rem 0;
   padding-left: 0;
   list-style-type: none;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--color-3);
   border-radius: 2px;
   overflow: hidden;
   position: relative;
@@ -82,7 +94,7 @@ ul.collection {
   position: relative;
   display: flex;
   justify-content: left;
-  background: #fff;
+  background: var(--color-1);
   background-image: url('/assets/images/interface/arrow.png');
   background-repeat: no-repeat;
   background-position: right center;
@@ -90,7 +102,7 @@ ul.collection {
   line-height: 1.5rem;
   padding: 5px 10px;
   margin: 0;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--color-3);
   image-rendering: -moz-crisp-edges;
   image-rendering: -webkit-crisp-edges;
   image-rendering: pixelated;
@@ -129,7 +141,8 @@ ul.collection {
 
 .icon {
   border-radius: 3px;
-  border: 2px solid #333;
+  border: 2px solid var(--color-4);
+  padding: 2px;
 }
 
 .collection .multiline {
@@ -141,10 +154,10 @@ h2 img {
 }
 
 .card {
-  background: #fff;
+  background: var(--color-1);
   border-radius: 2px;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14);
+  border: 1px solid var(--color-2);
+  box-shadow: 0 2px 2px 0 var(--color-4);
 
 }
 
@@ -155,12 +168,12 @@ h2 img {
 .btn {
   text-align: center;
   letter-spacing: .5px;
-  color: #fff;
+  color: var(--color-1);
   text-transform: uppercase;
   transition: background-color .2s ease-out;
-  background-color: #26a69a;
+  background-color: var(--color-3);
+  border: 1px solid var(--color-4);
   cursor: pointer;
-  border: none;
   border-radius: 2px;
   display: inline-block;
   height: 36px;
@@ -170,7 +183,8 @@ h2 img {
 }
 
 .btn:hover {
-  background-color: #2bbbad;
+  background-color: var(--color-2);
+  color: var(--color-4);
 }
 
 .btn:disabled {
@@ -183,14 +197,22 @@ h2 img {
   margin-bottom: 1rem;
 }
 
-input {
-  width: 100%;
-  height: 2rem;
-  margin: 0 0 8px 0;
-  padding: 2px;
+label {
+  display: block;
 }
 
-h2{
+input {
+  display: block;
+  color: var(--color-4);
+  width: calc(100% - 24px);
+  height: 2rem;
+  margin: 0 0 8px 0;
+  padding: 0px 8px;
+  background: var(--color-1);
+  border: 2px solid var(--color-3);
+}
+
+h2 {
   display: flex;
   align-items: center;
 }
@@ -201,8 +223,12 @@ h2{
 }
 
 .breadcrumb a {
-  text-decoration: none;
-  color: blue;
+  color: var(--color-4);
+  transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+  color: var(--color-3);
 }
 
 .item-count {
@@ -214,8 +240,12 @@ h2{
   text-align: center;
 }
 
-.quest.modal span, .quest.modal div, .reward-unlock span {
+.quest.modal span, .quest.modal .reward div, .reward-unlock span {
   display: flex;
+}
+
+.reward-unlock {
+  margin: 1rem 0;
 }
 
 .reward-unlock img {
