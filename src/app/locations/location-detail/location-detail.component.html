@@ -1,6 +1,7 @@
 <div class="breadcrumb">
   <a [routerLink]="['/locations']">Locations</a>
-  <a [routerLink]="['/locations', currentLocation.parentLocationKey]" *ngIf="currentLocation.parentLocationKey"> &lt; {{heroService.getLocation(currentLocation.parentLocationKey).name}}</a>
+  <span *ngIf="currentLocation.parentLocationKey">&nbsp;&lt;&nbsp;</span>
+  <a [routerLink]="['/locations', currentLocation.parentLocationKey]" *ngIf="currentLocation.parentLocationKey">{{heroService.getLocation(currentLocation.parentLocationKey).name}}</a>
 </div>
 
 
