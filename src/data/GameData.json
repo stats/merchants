@@ -400,6 +400,29 @@
 				{
 					"typeStr": "3",
 					"name": "cost"
+				},
+				{
+					"typeStr": "2",
+					"name": "craftable",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "craftGoldCost"
+				},
+				{
+					"typeStr": "8",
+					"name": "craftRequiredItems",
+					"display": null
+				},
+				{
+					"typeStr": "8",
+					"name": "craftConsumedItems",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "craftedCount"
 				}
 			],
 			"lines": [
@@ -408,288 +431,334 @@
 					"name": "Small Redcap Mushroom",
 					"description": "A small mushroom with a red cap",
 					"cost": 5,
-					"imageKey": "redcap_mushroom"
+					"imageKey": "redcap_mushroom",
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0,
+					"craftable": false
 				},
 				{
 					"key": "pelt_small",
 					"name": "Small Pelt",
 					"description": "A small animal pelt",
 					"cost": 5,
-					"imageKey": "pelt"
+					"imageKey": "pelt",
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0,
+					"craftable": false
 				},
 				{
 					"key": "pelt_medium",
 					"name": "Medium Pelt",
 					"description": "A medium sized animal pelt",
 					"cost": 15,
-					"imageKey": "pelt"
+					"imageKey": "pelt",
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0,
+					"craftable": false
 				},
 				{
 					"key": "sewing_needle",
 					"name": "Sewing Needle",
 					"description": "A small sewing needle",
 					"cost": 1,
-					"imageKey": "sewing_needle"
+					"imageKey": "sewing_needle",
+					"craftGoldCost": 0,
+					"craftRequiredItems": [
+						{
+							"key": "smith_hammer",
+							"count": 1
+						}
+					],
+					"craftConsumedItems": [
+						{
+							"key": "iron_lump",
+							"count": 1
+						}
+					],
+					"craftedCount": 5,
+					"craftable": true
 				},
 				{
 					"key": "thread",
 					"name": "Thread",
 					"description": "A small spool of thread",
 					"cost": 1,
-					"imageKey": "thread"
+					"imageKey": "thread",
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0,
+					"craftable": false
 				},
 				{
 					"key": "health_potion_small",
 					"name": "Small Health Potion",
 					"description": "A small potion of healing",
 					"cost": 50,
-					"imageKey": "health_potion"
+					"imageKey": "health_potion",
+					"craftGoldCost": 0,
+					"craftRequiredItems": [
+						{
+							"key": "mortar_pestel",
+							"count": 1
+						}
+					],
+					"craftConsumedItems": [
+						{
+							"key": "redcap_mushroom_small",
+							"count": 3
+						},
+						{
+							"key": "water_bucket",
+							"count": 1
+						}
+					],
+					"craftedCount": 1,
+					"craftable": true
 				},
 				{
 					"key": "mortar_pestel",
 					"name": "Mortar and pestal",
 					"description": "Device used for grinding ingredients into a powder",
 					"cost": 10,
-					"imageKey": "mortar_pestel"
+					"imageKey": "mortar_pestel",
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0,
+					"craftable": false
 				},
 				{
 					"key": "glass_vial",
 					"name": "Glass Vial",
 					"description": "A small glass vial",
 					"cost": 1,
-					"imageKey": "glass_vial"
+					"imageKey": "glass_vial",
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0,
+					"craftable": false
 				},
 				{
 					"key": "water_bucket",
 					"name": "Bucket of Water",
 					"description": "A bucket of water, drawn from a common water source",
 					"cost": 1,
-					"imageKey": "water_bucket"
+					"imageKey": "water_bucket",
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0,
+					"craftable": false
 				},
 				{
 					"key": "smith_hammer",
 					"name": "Smith's Hammer",
 					"description": "A common hammer used by metal smiths",
 					"cost": 10,
-					"imageKey": "smith_hammer"
+					"imageKey": "smith_hammer",
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0,
+					"craftable": true
 				},
 				{
 					"key": "iron_lump",
 					"name": "Lump of Iron",
 					"description": "A small lump of iron ore",
 					"cost": 5,
-					"imageKey": "iron_lump"
+					"imageKey": "iron_lump",
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0,
+					"craftable": false
 				},
 				{
 					"key": "horse_shoe",
 					"name": "Horse Shoe",
 					"description": "A shoe for a horse",
 					"cost": 2,
-					"imageKey": "horse_shoe"
+					"imageKey": "horse_shoe",
+					"craftGoldCost": 0,
+					"craftRequiredItems": [
+						{
+							"key": "smith_hammer",
+							"count": 1
+						}
+					],
+					"craftConsumedItems": [
+						{
+							"key": "iron_lump",
+							"count": 1
+						}
+					],
+					"craftedCount": 4,
+					"craftable": true
 				},
 				{
 					"key": "dagger_iron_poor",
 					"name": "Poor Quality Iron Dagger",
 					"description": "Not much more than a lump of iron made a little pit pointy",
 					"cost": 6,
-					"imageKey": "dagger_iron"
+					"imageKey": "dagger_iron",
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0,
+					"craftable": true
 				},
 				{
 					"key": "short_sword_iron_poor",
 					"name": "Poor Quality Iron Short Sword",
 					"description": "An arms length sword of iron, poor quality with not much of an edge",
 					"cost": 15,
-					"imageKey": "short_sword_iron"
+					"imageKey": "short_sword_iron",
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0,
+					"craftable": true
 				},
 				{
 					"key": "shield_round_iron_poor",
 					"name": "Poor Quality Iron Banded Round Shield",
 					"description": "Primarily a wooden shield with rough iron bands pounded across to hold it together",
 					"cost": 10,
-					"imageKey": "shield_round_iron"
+					"imageKey": "shield_round_iron",
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0,
+					"craftable": true
 				},
 				{
 					"key": "axe_lumber_poor",
 					"name": "Poor Quality Lumber Axe",
 					"description": "An axe designed for chopping down trees, not very durable",
 					"cost": 10,
-					"imageKey": "axe_lumber"
+					"imageKey": "axe_lumber",
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0,
+					"craftable": true
 				},
 				{
 					"key": "log_soft",
 					"name": "Softwood Log",
 					"description": "A log earned by chopping down an evergreen tree",
 					"cost": 1,
-					"imageKey": "log"
+					"imageKey": "log",
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0,
+					"craftable": false
 				},
 				{
 					"key": "log_hardwood",
 					"name": "Hardwood Log",
 					"description": "A log earned by chopping down a deciduous tree",
 					"cost": 2,
-					"imageKey": "log"
+					"imageKey": "log",
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0,
+					"craftable": false
 				},
 				{
 					"key": "handle_wood_soft",
 					"name": "Soft Wooden Rod",
 					"description": "A rod made from a softwood log, not the best quality",
 					"cost": 2,
-					"imageKey": "handle_wood"
+					"imageKey": "handle_wood",
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0,
+					"craftable": true
 				},
 				{
 					"key": "handle_wood_hard",
 					"name": "Hard Wooden Rod",
 					"description": "A rod made from a hardwood log, more durable than a softwood variant",
 					"cost": 3,
-					"imageKey": "handle_wood"
+					"imageKey": "handle_wood",
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0,
+					"craftable": true
 				},
 				{
 					"key": "health_potion_medium",
 					"imageKey": "health_potion",
 					"name": "Medium Health Potion",
 					"description": "A medium sized healing potion for curing more than small abrasions",
-					"cost": 100
+					"cost": 100,
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0,
+					"craftable": false
 				},
 				{
 					"key": "ale_common",
 					"imageKey": "ale",
 					"name": "Common Ale",
 					"description": "A common ale with a light and refreshing taste",
-					"cost": 2
+					"cost": 2,
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0,
+					"craftable": false
 				},
 				{
 					"key": "ale_strong",
 					"imageKey": "ale",
 					"name": "Strong Ale",
 					"description": "A stronger brew of ale with a medium body and a little kick",
-					"cost": 5
+					"cost": 5,
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0,
+					"craftable": false
 				},
 				{
 					"key": "ale_dwarvish_common",
 					"imageKey": "ale",
 					"name": "Dwarvish Ale",
 					"description": "A extra strong brew built for the average dwarvish pallet",
-					"cost": 15
+					"cost": 15,
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0,
+					"craftable": false
 				},
 				{
 					"key": "ale_dwarvish_strong",
 					"imageKey": "ale",
 					"name": "Strong Dwarvish Ale",
 					"description": "An ale that sates the thirsts of the heartiest of the dwarves. Warning: drinking may lead to unconciousness and deaths",
-					"cost": 35
-				}
-			],
-			"separators": [],
-			"props": {}
-		},
-		{
-			"name": "Crafts",
-			"columns": [
-				{
-					"typeStr": "0",
-					"name": "key",
-					"display": null
-				},
-				{
-					"typeStr": "1",
-					"name": "imageKey",
-					"display": null
-				},
-				{
-					"typeStr": "1",
-					"name": "name",
-					"display": null
-				},
-				{
-					"typeStr": "1",
-					"name": "description",
-					"display": null
-				},
-				{
-					"typeStr": "2",
-					"name": "unlocked",
-					"display": null
-				},
-				{
-					"typeStr": "3",
-					"name": "requiredGold"
-				},
-				{
-					"typeStr": "8",
-					"name": "requiredItems",
-					"display": null
-				},
-				{
-					"typeStr": "8",
-					"name": "consumedItems",
-					"display": null
-				},
-				{
-					"typeStr": "8",
-					"name": "rewardedItems",
-					"display": null
-				}
-			],
-			"lines": [
-				{
-					"key": "horse_shoe",
-					"name": "Horse Shoe",
-					"description": "Create enough shoes to outfit a horse",
-					"unlocked": false,
-					"requiredGold": 0,
-					"requiredItems": [
-						{
-							"key": "smith_hammer",
-							"count": 1
-						}
-					],
-					"consumedItems": [
-						{
-							"key": "iron_lump",
-							"count": 1
-						}
-					],
-					"rewardedItems": [
-						{
-							"key": "horse_shoe",
-							"count": 4
-						}
-					],
-					"imageKey": "bulk_good"
-				},
-				{
-					"key": "healing_potion_small",
-					"name": "Small Healing Potion",
-					"description": "Create a small healing potion",
-					"unlocked": false,
-					"requiredGold": 0,
-					"requiredItems": [
-						{
-							"key": "mortar_pestel",
-							"count": 1
-						}
-					],
-					"consumedItems": [
-						{
-							"key": "redcap_mushroom_small",
-							"count": 2
-						},
-						{
-							"key": "water_bucket",
-							"count": 1
-						},
-						{
-							"key": "glass_vial",
-							"count": 1
-						}
-					],
-					"rewardedItems": [
-						{
-							"key": "health_potion_small",
-							"count": 1
-						}
-					],
-					"imageKey": "alchemy"
+					"cost": 35,
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0,
+					"craftable": false
 				}
 			],
 			"separators": [],
@@ -819,9 +888,6 @@
 						},
 						{
 							"key": "pittmedden_well_beg"
-						},
-						{
-							"key": "pittmedden_town_explore_002"
 						}
 					],
 					"unlockLocationKeys": [
@@ -830,6 +896,15 @@
 						},
 						{
 							"key": "pittmedden_generalstore"
+						},
+						{
+							"key": "pittmedden_blacksmith"
+						},
+						{
+							"key": "pittmedden_mill"
+						},
+						{
+							"key": "pittmedden_tavern"
 						}
 					],
 					"unlockCraftKeys": [],
@@ -879,90 +954,44 @@
 					"rewardedGold": 1
 				},
 				{
-					"key": "pittmedden_town_explore_002",
-					"imageKey": "explore",
-					"name": "Explore Pittmedden Town II",
-					"description": "After finding the well and the store it is time to see what else is around.",
+					"key": "pittmedden_town_blacksmith_apprentice",
+					"imageKey": "blacksmith",
+					"name": "Apprentice with the blacksmith",
+					"description": "Learn the basic trade of blacksmith",
 					"parentLocationKey": "pittmedden_town",
-					"completeText": "You found the Pittmedden Lumber Mill and the Blacksmith",
-					"repeatable": true,
+					"completeText": "You learned basic blacksmithing",
+					"repeatable": false,
 					"unlocked": false,
-					"requiredGold": 0,
+					"requiredGold": 50,
 					"requiredItems": [],
 					"consumedItems": [],
 					"rewardedItems": [],
 					"unlockQuestKeys": [],
-					"unlockLocationKeys": [
-						{
-							"key": "pittmedden_mill"
-						},
-						{
-							"key": "pittmedden_blacksmith"
-						}
-					],
+					"unlockLocationKeys": [],
+					"unlockCraftKeys": [],
+					"rewardedGold": 0
+				},
+				{
+					"key": "pittmedden_town_mill_apprentice",
+					"imageKey": "mill",
+					"name": "Woodworker Apprentice",
+					"description": "Learn the basic skills of a woodworker",
+					"parentLocationKey": "pittmedden",
+					"completeText": "You learn basic woodworking skills",
+					"repeatable": false,
+					"unlocked": false,
+					"requiredGold": 50,
+					"requiredItems": [],
+					"consumedItems": [],
+					"rewardedItems": [],
+					"unlockQuestKeys": [],
+					"unlockLocationKeys": [],
 					"unlockCraftKeys": [],
 					"rewardedGold": 0
 				}
 			],
 			"separators": [],
 			"props": {}
-		},
-		{
-			"name": "Crafts@requiredItems",
-			"props": {
-				"hide": true
-			},
-			"separators": [],
-			"lines": [],
-			"columns": [
-				{
-					"typeStr": "6:Items",
-					"name": "key",
-					"display": null
-				},
-				{
-					"typeStr": "3",
-					"name": "count"
-				}
-			]
-		},
-		{
-			"name": "Crafts@consumedItems",
-			"props": {
-				"hide": true
-			},
-			"separators": [],
-			"lines": [],
-			"columns": [
-				{
-					"typeStr": "6:Items",
-					"name": "key",
-					"display": null
-				},
-				{
-					"typeStr": "3",
-					"name": "count"
-				}
-			]
-		},
-		{
-			"name": "Crafts@rewardedItems",
-			"props": {
-				"hide": true
-			},
-			"separators": [],
-			"lines": [],
-			"columns": [
-				{
-					"typeStr": "6:Items",
-					"name": "key",
-					"display": null
-				},
-				{
-					"typeStr": "3",
-					"name": "count"
-				}
-			]
 		},
 		{
 			"name": "Quests@requiredItems",
@@ -1037,7 +1066,51 @@
 			},
 			"separators": [],
 			"lines": [],
-			"columns": []
+			"columns": [
+				{
+					"typeStr": "6:Items",
+					"name": "key",
+					"display": null
+				}
+			]
+		},
+		{
+			"name": "Items@craftRequiredItems",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "6:Items",
+					"name": "key",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "count"
+				}
+			]
+		},
+		{
+			"name": "Items@craftConsumedItems",
+			"props": {
+				"hide": true
+			},
+			"separators": [],
+			"lines": [],
+			"columns": [
+				{
+					"typeStr": "6:Items",
+					"name": "key",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "count"
+				}
+			]
 		}
 	],
 	"customTypes": [],
