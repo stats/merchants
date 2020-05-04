@@ -16,7 +16,7 @@ export class HeroListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+
   }
 
   addHero() {
@@ -25,7 +25,7 @@ export class HeroListComponent implements OnInit {
 
   selectHero(name: string) {
     this.heroService.setCurrentHero(name);
-    this.router.navigate(['/locations']);
+    this.router.navigate(['/game']);
   }
 
 }

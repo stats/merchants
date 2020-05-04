@@ -683,8 +683,18 @@
 					"cost": 2,
 					"imageKey": "handle_wood",
 					"craftGoldCost": 0,
-					"craftRequiredItems": [],
-					"craftConsumedItems": [],
+					"craftRequiredItems": [
+						{
+							"key": "chisel_wood",
+							"count": 1
+						}
+					],
+					"craftConsumedItems": [
+						{
+							"key": "log_soft",
+							"count": 1
+						}
+					],
 					"craftedCount": 0,
 					"craftable": true
 				},
@@ -695,8 +705,18 @@
 					"cost": 3,
 					"imageKey": "handle_wood",
 					"craftGoldCost": 0,
-					"craftRequiredItems": [],
-					"craftConsumedItems": [],
+					"craftRequiredItems": [
+						{
+							"key": "chisel_wood",
+							"count": 1
+						}
+					],
+					"craftConsumedItems": [
+						{
+							"key": "log_hardwood",
+							"count": 0
+						}
+					],
 					"craftedCount": 0,
 					"craftable": true
 				},
@@ -759,6 +779,18 @@
 					"craftConsumedItems": [],
 					"craftedCount": 0,
 					"craftable": false
+				},
+				{
+					"key": "chisel_wood",
+					"imageKey": "chisel",
+					"name": "Woodworker's Chisel",
+					"description": "A chisel used for shaping wood",
+					"cost": 10,
+					"craftable": false,
+					"craftGoldCost": 0,
+					"craftRequiredItems": [],
+					"craftConsumedItems": [],
+					"craftedCount": 0
 				}
 			],
 			"separators": [],

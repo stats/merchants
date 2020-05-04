@@ -1,14 +1,7 @@
-import { Key } from '../../common/key-count.model';
+import { IAction } from './action.model';
 
-export interface Location {
+export interface ILocation {
   name: string;
   description: string;
-  key: string;
-  imageKey: string;
-  parentLocationKey: string;
-  unlocked: boolean;
-  sellsItemKeys: Key[];
-  buysItemKeys: Key[];
-  sellsMarkup: number;
-  buysMarkup: number;
+  actions: IAction[];
 }

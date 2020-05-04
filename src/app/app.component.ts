@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HeroService } from './heroes/hero.service';
-import { IHero } from './heroes/shared/hero.model';
+import { IHero } from '@models/hero.model';
 
 @Component({
   selector: 'app-root',
