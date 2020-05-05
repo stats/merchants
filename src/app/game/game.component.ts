@@ -49,11 +49,37 @@ export class GameComponent implements OnInit {
   }
 
   use(): void {
-
+    let dropArea = document.getElementById('item-drop-area');
+    let items = [];
+    dropArea.childNodes.forEach((child) => {
+      if(child.nodeName == "SPAN") {
+        items.push( (child["id"] as string).substring(6));
+      }
+    });
+    let used: boolean = this.heroService.use(items);
+    if(used) {
+      console.log("Use Successful");
+    } else {
+      console.log("Use Failed");
+    }
+    this.clear();
   }
 
   craft(): void {
-
+    let dropArea = document.getElementById('item-drop-area');
+    let items = [];
+    dropArea.childNodes.forEach((child) => {
+      if(child.nodeName == "SPAN") {
+        items.push( (child["id"] as string).substring(6));
+      }
+    });
+    let crafted: boolean = this.heroService.craft(items);
+    if(crafted) {
+      console.log("Craft Successful");
+    } else {
+      console.log("Craft Failed");
+    }
+    this.clear();
   }
 
   clear(): void {

@@ -8,7 +8,8 @@ export const Locations: any = {
       {
         items: ["travelers_boots"],
         description: "Buckling your boots you set off towards adventure. After walking for many leagues you happen upon a deserted frontier town.",
-        unlockLocations: ["deserted_frontier_town"]
+        unlockLocations: ["deserted_frontier_town"],
+        moveToLocation: "deserted_frontier_town"
       },
       {
         items: ["spyglass"],
@@ -19,11 +20,21 @@ export const Locations: any = {
   "deserted_frontier_town": {
     name: "A Deserted Frontier Town",
     description: "Your first steps have led you to the broken gates of a deserted frontier town.",
-    actions: {
-      items: ["travelers_boots"],
-      description: "You have discovered some abandoned buildings.",
-      unlockLocations: ["deserted_well","deserted_blacksmith","deserted_mill","deserted_tavern","deserted_farm"]
-    }
+    actions: [
+      {
+        items: ["travelers_boots"],
+        description: "You have discovered some abandoned buildings.",
+        unlockLocations: ["deserted_well","deserted_blacksmith","deserted_mill","deserted_tavern","deserted_farm"]
+      }
+    ]
+  },
+  "deserted_farm": {
+    name: "Deserted Farm",
+    description: "A dusty, dirty and disused farm.",
+  },
+  "deserted_blacksmith": {
+    name: "Deserted Blacksmith",
+    description: "A dusty, dirty and disused blacksmith.",
   },
   "deserted_tavern": {
     name: "Deserted Tavern",

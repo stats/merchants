@@ -40,7 +40,7 @@ export class HeroService {
     let hero: Hero = new Hero({
       name: name,
       locations: ['cusp_of_adventure'],
-      items: ['travelers_boots']
+      items: ['travelers_boots', 'spyglass']
     });
 
     this.heroes.push(hero);
@@ -104,29 +104,36 @@ export class HeroService {
     return Items[key];
   }
 
-  use(items: string[]) {
+  use(items: string[]): boolean {
+    console.log(this.currentLocation);
     for(let action of this.currentLocation.actions) {
       if( this.isEqual(items, action.items)) {
         this.currentHero.addItems(action.rewards);
         this.currentHero.addLocations(action.unlockLocations);
         this.currentHero.removeLocations(action.removeLocations);
         if(action.moveToLocation) this.setCurrentLocation(action.moveToLocation);
-        return;
+        this.saveHeroes();
+        return true;
       }
     }
+    return false;
   }
 
-  craft(items: string[]) {
+  craft(items: string[]): boolean {
     for(let recipe of Recipes) {
       if( this.isEqual(items, recipe.items) ) {
         this.currentHero.addItems(recipe.rewards);
-        return;
+        this.saveHeroes();
+        return true;
       }
     }
+    return false
   }
 
   isEqual(array1: string[], array2: string[]): boolean {
-    return array1.length === array2.length && array1.sort().every(function(value, index) { return value === array2.sort()[index]});
+    let equal = array1.length === array2.length && array1.sort().every(function(value, index) { return value === array2.sort()[index]});
+    //console.log(array1, array2, equal);
+    return equal;
   }
 
 }

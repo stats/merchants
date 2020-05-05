@@ -25,6 +25,8 @@ export class Hero implements IHero {
   }
 
   addLocations(keys: string[]): void {
+    if(!keys) return;
+    
     for(let key of keys) {
       this.addLocation(key);
     }
@@ -36,6 +38,8 @@ export class Hero implements IHero {
   }
 
   removeLocations(keys: string[]): void {
+    if(!keys) return;
+
     for(let key of keys) {
       this.removeLocation(key);
     }
@@ -58,6 +62,8 @@ export class Hero implements IHero {
   }
 
   addItems(keys: string[]): void {
+    if(!keys) return;
+
     for(let key of keys) {
       this.addItem(key);
     }
