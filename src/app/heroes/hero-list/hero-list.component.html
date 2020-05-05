@@ -2,10 +2,10 @@
 
 <ul class="heroes collection">
   <li *ngFor="let hero of heroService.getHeroes()" class="collection-item" (click)="selectHero(hero.name)">
-    <img src="/assets/images/heroes/hero001.png" width="32" height="32" [alt]="hero.name"/>
+    <span class="sprite hero-001"></span>
     <div class="multiline">
       <span class="title">{{hero.name}}</span>
-      <p>Gold: {{hero.gold}} Locations: {{hero.locations.length}} Crafts: {{hero.crafts.length}}</p>
+      <p>Items: {{hero.items.length}} Locations: {{hero.locations.length}}</p>
     </div>
   </li>
 </ul>

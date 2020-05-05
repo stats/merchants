@@ -1,0 +1,48 @@
+.sprite {
+    display: inline-block;
+    background-image: url('/assets/images/sprites.png');
+    background-repeat: no-repeat;
+    background-size: 1024px 1024px;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    width: 32px;
+    height: 32px;
+    
+}
+
+.hero-001 { background-position: 0px 0px; }
+.cusp_of_adventure, .map { background-position: -32px 0px; }
+.arrow_down { background-position: -64px 0px; }
+.arrow_right { background-position: -96px 0px; }
+.chest { background-position: -128px 0px; }
+.crown { background-position: -160px 0px; }
+.coin { background-position: -192px 0px; }
+.hammer { background-position: -224px 0px; }
+.basic_lumber_axe { background-position: -256px 0px; }
+.dagger { background-position: -288px 0px; }
+.potion { background-position: -320px 0px; }
+.horse { background-position: -352px 0px; }
+.log { background-position: -384px 0px; }
+.pelt { background-position: -416px 0px; }
+.mushroom { background-position: -448px 0px; }
+.needle { background-position: -480px 0px; }
+.iron_banded_shield { background-position: -512px 0px; }
+.wooden_shield { background-position: -544px 0px; }
+.water_bucket { background-position: -576px 0px; }
+.short_sword { background-position: -608px 0px; }
+.long_sword { background-position: -640px 0px; }
+.thread { background-position: -672px 0px; }
+.well { background-position: -704px 0px; }
+.cave { background-position: -736px 0px; }
+.forest { background-position: -768px 0px; }
+.gully { background-position: -800px 0px; }
+.lava { background-position: -832px 0px; }
+.mill { background-position: -864px 0px; }
+.region { background-position: -896px 0px; }
+.town { background-position: -928px 0px; }
+.general_store { background-position: -960px 0px; }
+.goblin { background-position: -992px 0px; }
+.broom { background-position: 0px -32px; }
+.explore { background-position: -32px -32px; }
