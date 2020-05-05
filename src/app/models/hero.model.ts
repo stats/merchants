@@ -47,8 +47,8 @@ export class Hero implements IHero {
 
   getLocations(): any {
     let locations: any = {};
-    for(let loc in this.locations) {
-      locations[loc] = Location[loc];
+    for(let loc of this.locations) {
+      locations[loc] = Locations[loc];
     }
     return locations;
   }
@@ -70,7 +70,7 @@ export class Hero implements IHero {
 
   getItems(): any {
     let items: any = {};
-    for(let item in this.items) {
+    for(let item of this.items) {
       items[item] = Items[item];
     }
     return items;

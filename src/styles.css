@@ -305,11 +305,53 @@ footer ul li:hover {
 }
 
 nav ul a {
-  display: block;
+  display: flex;
   padding: 0 15px;
   cursor: pointer;
+  align-items: center;
+  height: 56px;
 }
 
 footer img {
   vertical-align: middle;
+}
+
+.location .title p {
+  margin-bottom: 0;
+}
+
+.location .title h2 {
+  margin-top: 0;
+}
+
+.multiline p {
+  margin: 0;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.options .btn {
+  width:100px;
+}
+
+.item-drop-area {
+  display: block;
+  position: relative;
+  border-radius: 3px;
+  border: 2px dashed var(--color-3);
+  height: 32px;
+  padding: 4px;
+  margin: 1em;
+}
+
+.item-drop-area p {
+  color: var(--color-2);
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  margin: 0;
+  font-size: 11px;
 }
