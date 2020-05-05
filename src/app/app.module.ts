@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
-import { TitleDescriptionComponent } from './common/title-description/title-description.component';
 import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
 import { HeroListComponent } from './heroes/hero-list/hero-list.component';
 import { GameComponent } from './game/game.component';
@@ -17,7 +16,6 @@ import { HeroService } from './heroes/hero.service';
 @NgModule({
   declarations: [
     AppComponent,
-    TitleDescriptionComponent,
     PageNotFoundComponent,
     HeroListComponent,
     GameComponent,

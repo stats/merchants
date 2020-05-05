@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { HeroService } from '../heroes/hero.service';
-import { IHero } from '@models/hero.model';
+import { Hero } from '@models/hero.model';
 import { ILocation } from '@models/location.model';
 
 @Component({
@@ -12,7 +12,7 @@ import { ILocation } from '@models/location.model';
 })
 export class GameComponent implements OnInit {
 
-  public currentHero: IHero;
+  public currentHero: Hero;
   public currentLocation: ILocation;
   public currentLocationKey: string;
 

@@ -15,7 +15,7 @@ export class HeroService {
   private currentHeroIndex: number;
   private currentLocationKey: string;
 
-  public currentHero$: BehaviorSubject<IHero>;
+  public currentHero$: BehaviorSubject<Hero>;
   public currentLocation$: BehaviorSubject<ILocation>;
 
   constructor() {
@@ -31,7 +31,7 @@ export class HeroService {
     }
 
     this.currentHeroIndex = parseInt(localStorage.getItem('currentHeroIndex'));
-    this.currentHero$ = new BehaviorSubject<IHero>(this.currentHero);
+    this.currentHero$ = new BehaviorSubject<Hero>(this.currentHero);
     this.currentLocationKey = 'cusp_of_adventure';
     this.currentLocation$ = new BehaviorSubject<ILocation>(this.currentLocation);
   }

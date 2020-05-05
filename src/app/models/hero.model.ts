@@ -1,5 +1,8 @@
 import { merge } from 'lodash';
 
+import { IItem } from '@models/item.model';
+import { Items, Locations } from '../data/game-data';
+
 export interface IHero {
   name: string;
 
@@ -42,6 +45,14 @@ export class Hero implements IHero {
     this.locations = this.locations.filter(k => k !== key);
   }
 
+  getLocations(): any {
+    let locations: any = {};
+    for(let loc in this.locations) {
+      locations[loc] = Location[loc];
+    }
+    return locations;
+  }
+
   hasItem(key: string): boolean {
     return this.items.indexOf(key) !== -1;
   }
@@ -55,6 +66,14 @@ export class Hero implements IHero {
   addItem(key: string): void {
     if(this.hasItem(key)) return;
     this.items.push(key);
+  }
+
+  getItems(): any {
+    let items: any = {};
+    for(let item in this.items) {
+      items[item] = Items[item];
+    }
+    return items;
   }
 
 }

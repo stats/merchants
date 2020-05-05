@@ -26,8 +26,8 @@
 </div>
 
 <div class="items">
-  <ul>
-    <li>Item</li>
+  <ul *ngFor="let item of currentHero.getItems() | keyvalue">
+    <li>{{item.key}} {{item.value.name}} {{item.value.description}}</li>
   </ul>
 </div>
 
