@@ -5,6 +5,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Hero, IHero } from '@models/hero.model';
 import { ILocation } from '@models/location.model';
 import { IItem } from '@models/item.model';
+import { IAction } from '@models/action.model';
+import { IRecipe } from '@models/recipe.model';
 
 import { Locations, Recipes, Items } from '../data/game-data';
 
@@ -96,15 +98,33 @@ export class HeroService {
     this.currentLocation$.next(Locations[key]);
   }
 
+  getLocations(keys: string[]): any {
+    if(!keys) return null;
+    let locations: any = {};
+    for(let key of keys) {
+      locations[key] = this.getLocation(key);
+    }
+    return locations;
+  }
+
   getLocation(key: string): ILocation {
     return Locations[key];
   }
 
-  getItem(key: string) {
+  getItems(keys: string[]): any {
+    if(!keys) return null;
+    let items: any = {};
+    for(let key of keys) {
+      items[key] = this.getItem(key);
+    }
+    return items;
+  }
+
+  getItem(key: string): IItem {
     return Items[key];
   }
 
-  use(items: string[]): boolean {
+  use(items: string[]): IAction {
     console.log(this.currentLocation);
     for(let action of this.currentLocation.actions) {
       if( this.isEqual(items, action.items)) {
@@ -113,21 +133,21 @@ export class HeroService {
         this.currentHero.removeLocations(action.removeLocations);
         if(action.moveToLocation) this.setCurrentLocation(action.moveToLocation);
         this.saveHeroes();
-        return true;
+        return action;
       }
     }
-    return false;
+    return null;
   }
 
-  craft(items: string[]): boolean {
+  craft(items: string[]): IRecipe {
     for(let recipe of Recipes) {
       if( this.isEqual(items, recipe.items) ) {
         this.currentHero.addItems(recipe.rewards);
         this.saveHeroes();
-        return true;
+        return recipe;
       }
     }
-    return false
+    return null;
   }
 
   isEqual(array1: string[], array2: string[]): boolean {

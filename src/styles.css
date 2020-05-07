@@ -73,7 +73,7 @@ nav a.logo:hover {
 
 .container {
   width: 85%;
-  margin: 0 auto;
+  margin: 10px auto;
   margin-bottom: 66px;
   max-width: 1280px;
 }
@@ -217,49 +217,6 @@ h2 {
   align-items: center;
 }
 
-.breadcrumb {
-  margin-top: 1rem;
-  font-weight: 500;
-}
-
-.breadcrumb a {
-  color: var(--color-4);
-  transition: color 0.3s;
-}
-
-.breadcrumb a:hover {
-  color: var(--color-3);
-}
-
-.item-count {
-  display: flex;
-  align-items: center;
-}
-
-.quest.modal {
-  text-align: center;
-}
-
-.quest.modal span, .quest.modal .reward div, .reward-unlock span {
-  display: flex;
-}
-
-.reward-unlock {
-  margin: 1rem 0;
-}
-
-.reward-unlock img {
-  margin-right: 10px;
-}
-
-.reward-unlock span {
-  align-items: center;
-}
-
-.quest .description, .rewards {
-  margin-bottom: 1rem;
-}
-
 .modal {
   position: absolute;
   top: 0;
@@ -268,6 +225,18 @@ h2 {
   height: 96vh;
   background-color: rgba(0,0,0,0.7);
   padding: 2vh 2vw;
+}
+
+.modal .alert {
+  margin: 1rem;
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--color-1);
+  border-radius: 3px;
+}
+
+.modal .alert p {
+  margin-bottom: 1rem;
 }
 
 .navbar-fixed nav {
@@ -364,9 +333,17 @@ footer img {
   display: inline-block;
 }
 
+.items .sprite-container {
+  border: 2px solid var(--color-4);
+  padding: 2px;
+  border-radius: 3px;
+  margin: 2px;
+}
+
 .sprite-container {
   display: inline-block;
   position: relative;
+  height: 32px;
 }
 
 .sprite-tooltip {
@@ -401,3 +378,59 @@ footer img {
   visibility: visible;
   opacity: 1;
 }
+
+.locations ul li {
+  display: flex;
+  align-items: center;
+  padding: 2px 0;
+}
+
+.locations ul li.active {
+  background-color: var(--color-2);
+}
+
+.navbar-fixed nav {
+	padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+.footer-fixed footer {
+	padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+body {display: flex;min-height: 100vh;flex-direction: column;}
+main {flex: 1 0 auto;}
+
+.footer-fixed {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+footer ul {
+		text-align: center;
+    display: table;
+    margin: 0 auto;
+}
+
+footer img {
+  vertical-align: middle;
+}
+
+.brand-logo {
+  font-family: 'Anton', sans-serif;
+}
+
+
+.hero-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  margin: 6px 0;
+}
+
+.hero-name {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+

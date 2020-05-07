@@ -49,15 +49,16 @@
 .explore { background-position: -32px -32px; }
 .travelers_boots { background-position: -64px -32px; }
 .travelers_cloak { background-position: -96px -32px; }
+.bucket { background-position: -128px -32px; }
+.deserted_tavern, .empty_tavern { background-position: -160px -32px; }
+.glass_bottle { background-position: -192px -32px;}
+.saw { background-position: -224px -32px; }
+.wood_chisel { background-position: -256px -32px; }
+.felled_fir { background-position: -288px -32px; }
+.felled_oak { background-position: -320px -32px; }
+.spyglass { background-position: -352px -32px; }
 
 /**
-.deserted_tavern
-.empty_tavern
-.bucket
-.water
-.glass_bottle
-.saw
-.wooden_chisel
 .felled_fir
 .felled_oak
 **/

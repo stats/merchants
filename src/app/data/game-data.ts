@@ -68,7 +68,7 @@ export const Locations: any = {
       {
         items: ["bucket"],
         description: "You are able to use the bucket to pull water from the well",
-        rewards: ["water"]
+        rewards: ["water_bucket"]
       }
     ]
   },
@@ -82,7 +82,7 @@ export const Locations: any = {
         rewards: ["saw","wood_chisel","basic_lumber_axe"],
         removeLocations: ["deserted_mill"],
         unlockLocations: ["empty_mill"],
-        moveToLocaton: "empty_mill"
+        moveToLocation: "empty_mill"
       },
     ]
   },
@@ -140,8 +140,8 @@ export const Recipes: IRecipe[] = [
     description: "As if out of nowhere you have found a warm cloak which to throw over your shoulders to keep warm."
   },
   {
-    items: ["felled_fir", "lumber_axe"],
-    rewards: ["log", "thick branch"],
+    items: ["felled_fir", "basic_lumber_axe"],
+    rewards: ["log", "thick_branch"],
     description: "You have chopped the felled fir into logs."
   },
   {
@@ -150,7 +150,7 @@ export const Recipes: IRecipe[] = [
     description: "Cutting the wooden logs has resulted in some wooden planks."
   },
   {
-    items: ["glass_bottle", "water"],
+    items: ["glass_bottle", "water_bucket"],
     rewards: ["water_bottle"],
     description: "Water and a bottle is a bottle of water."
   }
@@ -173,9 +173,9 @@ export const Items: any = {
     name: "Bucket",
     description: "A plain wooden bucket."
   },
-  "water": {
-    name: "Water",
-    description: "Just H2O."
+  "water_bucket": {
+    name: "Bucket of Water",
+    description: "Just H2O in a bucket."
   },
   "glass_bottle": {
     name: "Glass Bottle",
@@ -216,5 +216,13 @@ export const Items: any = {
   "travelers_cloak": {
     name: "Traveler's Cloak",
     description: "A trusty and warm cloak for best suited for travelling."
+  },
+  "thick_branch": {
+    name: "Thick Branch",
+    description: "A branch suitable for being worked."
+  },
+  "wooden_planks": {
+    name: "Wooden Planks",
+    description: "Some wooden planks"
   }
 };

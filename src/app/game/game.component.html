@@ -20,14 +20,8 @@
 
 </div>
 
-<div class="menu">
-  <ul>
-    <li>Items</li>
-    <li>Locations</li>
-  </ul>
-</div>
-
 <div class="items">
+  <h3>Items</h3>
   <ul>
     <li *ngFor="let item of currentHero.getItems() | keyvalue">
       <app-sprite key="{{item.key}}" tooltip="{{item.value.name}} - {{item.value.description}}"></app-sprite>
@@ -36,9 +30,33 @@
 </div>
 
 <div class="locations">
+  <h3>Locations</h3>
   <ul >
-    <li (click)="setLocation(location.key)" *ngFor="let location of currentHero.getLocations() | keyvalue">
+    <li (click)="setLocation(location.key)" *ngFor="let location of currentHero.getLocations() | keyvalue" [class.active]="location.key == currentLocationKey">
       <app-sprite key="{{location.key}}"></app-sprite> - {{location.value.name}}
     </li>
   </ul>
+</div>
+
+<div class="modal" *ngIf="showAlert">
+  <div class="alert">
+    <p>{{alertText}}</p>
+    <div *ngIf="alertItems">
+      <ul>
+        <li *ngFor="let item of alertItems | keyvalue">
+          <app-sprite key="{{item.key}}" tooltip="{{item.value.name}} - {{item.value.description}}"></app-sprite>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="alertLocations">
+      <ul >
+        <li *ngFor="let location of alertLocations | keyvalue">
+          <app-sprite key="{{location.key}}"></app-sprite> - {{location.value.name}}
+        </li>
+      </ul>
+    </div>
+    <div>
+      <button type="button" class="btn" (click)="hideAlert()">{{buttonText}}</button>
+    </div>
+  </div>
 </div>

@@ -4,7 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { HeroService } from '../heroes/hero.service';
 import { Hero } from '@models/hero.model';
 import { ILocation } from '@models/location.model';
-import { identifierModuleUrl } from '@angular/compiler';
+import { IAction } from '@models/action.model';
+import { IRecipe } from '@models/recipe.model';
+import { IItem } from '@models/item.model';
 
 @Component({
   selector: 'app-game',
@@ -16,6 +18,12 @@ export class GameComponent implements OnInit {
   public currentHero: Hero;
   public currentLocation: ILocation;
   public currentLocationKey: string;
+
+  public alertText = "";
+  public alertItems: any;
+  public alertLocations: any;
+  public buttonText = "Ok";
+  public showAlert = false;
 
   constructor(public heroService: HeroService) {
     this.heroService.currentHero$.subscribe(hero => {
@@ -52,6 +60,13 @@ export class GameComponent implements OnInit {
     this.heroService.setCurrentLocation(key);
   }
 
+  setAlertAndShow(text: string, items: any = null, locations: any = null ) {
+    this.alertText = text;
+    this.alertItems = items;
+    this.alertLocations = locations;
+    this.showAlert = true;
+  }
+
   use(): void {
     let dropArea = document.getElementById('item-drop-area');
     let items = [];
@@ -60,11 +75,15 @@ export class GameComponent implements OnInit {
         items.push( (child["id"] as string).substring(6));
       }
     });
-    let used: boolean = this.heroService.use(items);
+    let used: IAction = this.heroService.use(items);
     if(used) {
-      console.log("Use Successful");
+      this.setAlertAndShow(
+        used.description,
+        this.heroService.getItems(used.rewards),
+        this.heroService.getLocations(used.unlockLocations)
+      );
     } else {
-      console.log("Use Failed");
+      this.setAlertAndShow("You could not use those items here.");
     }
     this.clear();
   }
@@ -77,13 +96,20 @@ export class GameComponent implements OnInit {
         items.push( (child["id"] as string).substring(6));
       }
     });
-    let crafted: boolean = this.heroService.craft(items);
+    let crafted: IRecipe = this.heroService.craft(items);
     if(crafted) {
-      console.log("Craft Successful");
+      this.setAlertAndShow(
+        crafted.description,
+        this.heroService.getItems(crafted.rewards)
+      );
     } else {
-      console.log("Craft Failed");
+      this.setAlertAndShow("You could not craft those items.");
     }
     this.clear();
+  }
+
+  hideAlert() {
+    this.showAlert = false;
   }
 
   clear(): void {
