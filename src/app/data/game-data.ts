@@ -49,7 +49,8 @@ export const Locations: any = {
         items: ["broom"],
         description: "Using the broom and a lot of elbow greese you have transformed a dusty and disused tavern into something of your own.",
         removeLocations: ["deserted_tavern"],
-        unlockLocations: ["empty_tavern"]
+        unlockLocations: ["empty_tavern"],
+        moveToLocation: "empty_tavern"
       }
     ]
   },
@@ -80,7 +81,8 @@ export const Locations: any = {
         description: "Basic cleaning of the mill has revealed basic forestry and woodworking tools.",
         rewards: ["saw","wood_chisel","basic_lumber_axe"],
         removeLocations: ["deserted_mill"],
-        unlockLocations: ["empty_mill"]
+        unlockLocations: ["empty_mill"],
+        moveToLocaton: "empty_mill"
       },
     ]
   },
@@ -108,7 +110,8 @@ export const Locations: any = {
         items: ["oak_seeds"],
         description: "Your planting of oak seeds results in the growth of much hardier wood.",
         unlockLocations: ["oak_forest"],
-        removeLocations: ["forest"]
+        removeLocations: ["forest"],
+        moveToLocation: ["oak_forest"]
       }
     ]
   },
@@ -167,47 +170,51 @@ export const Items: any = {
     description: "A basic broom useful for clearning."
   },
   "bucket": {
-    name: "",
-    description: ""
+    name: "Bucket",
+    description: "A plain wooden bucket."
   },
   "water": {
-    name: "",
-    description: ""
+    name: "Water",
+    description: "Just H2O."
   },
   "glass_bottle": {
-    name: "",
-    description: ""
+    name: "Glass Bottle",
+    description: "An empty bottle made of glass."
   },
   "saw": {
-    name: "",
-    description: ""
+    name: "Saw",
+    description: "A simple hand saw."
   },
-  "wooden_chisel": {
-    name: "",
-    description: ""
+  "wood_chisel": {
+    name: "Wood Chisel",
+    description: "A chisel for shaping wood"
   },
   "basic_lumber_axe": {
-    name: "",
-    description: ""
+    name: "Basic Lumber Axe",
+    description: "A simple lumber axe for cutting soft wood."
   },
   "fine_lumber_axe": {
-    name: "",
-    description: ""
+    name: "Fine Lumber Axe",
+    description: "A really nice lumber axe"
   },
   "felled_fir": {
-    name: "",
-    description: ""
+    name: "Felled Fir",
+    description: "A fir tree, chopped down."
   },
   "felled_oak": {
-    name: "",
-    description: ""
+    name: "Felled Oak",
+    description: "An oak tree, chopped down."
   },
   "log": {
-    name: "",
-    description: ""
+    name: "Log",
+    description: "Once a tree now a log."
   },
   "oak_log": {
-    name: "",
-    description: ""
+    name: "Oak Log",
+    description: "Once a tree now a superiour quality log."
+  },
+  "travelers_cloak": {
+    name: "Traveler's Cloak",
+    description: "A trusty and warm cloak for best suited for travelling."
   }
 };

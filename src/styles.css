@@ -355,3 +355,49 @@ footer img {
   margin: 0;
   font-size: 11px;
 }
+
+.items ul {
+  list-style: none;
+}
+
+.items ul li {
+  display: inline-block;
+}
+
+.sprite-container {
+  display: inline-block;
+  position: relative;
+}
+
+.sprite-tooltip {
+  visibility: hidden;
+  background-color: var(--color-2);
+  color: var(--color-4);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  width: 240px;
+  margin-left: -120px;
+  opacity: 0;
+  transform: opacity 0.3s;
+}
+
+.sprite-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--color-2) transparent transparent transparent;
+}
+
+.sprite-tooltip.show {
+  visibility: visible;
+  opacity: 1;
+}

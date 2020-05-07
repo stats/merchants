@@ -6,7 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
-import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from '@common/page-not-found/page-not-found.component';
+import { SpriteComponent } from '@common/sprite/sprite.component';
 import { HeroListComponent } from './heroes/hero-list/hero-list.component';
 import { GameComponent } from './game/game.component';
 
@@ -17,6 +18,7 @@ import { HeroService } from './heroes/hero.service';
   declarations: [
     AppComponent,
     PageNotFoundComponent,
+    SpriteComponent,
     HeroListComponent,
     GameComponent,
   ],

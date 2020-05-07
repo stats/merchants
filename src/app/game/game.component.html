@@ -28,13 +28,17 @@
 </div>
 
 <div class="items">
-  <ul *ngFor="let item of currentHero.getItems() | keyvalue">
-    <li><span id="{{item.key}}" class="sprite {{item.key}}" draggable="true" (dragover)="allowDrop($event)" (dragstart)="drag($event)"></span></li>
+  <ul>
+    <li *ngFor="let item of currentHero.getItems() | keyvalue">
+      <app-sprite key="{{item.key}}" tooltip="{{item.value.name}} - {{item.value.description}}"></app-sprite>
+    </li>
   </ul>
 </div>
 
 <div class="locations">
-  <ul *ngFor="let location of currentHero.getLocations() | keyvalue">
-    <li><span class="sprite {{location.key}}"></span> - {{location.value.name}}</li>
+  <ul >
+    <li (click)="setLocation(location.key)" *ngFor="let location of currentHero.getLocations() | keyvalue">
+      <app-sprite key="{{location.key}}"></app-sprite> - {{location.value.name}}
+    </li>
   </ul>
 </div>

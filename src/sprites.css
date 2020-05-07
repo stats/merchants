@@ -1,5 +1,6 @@
 .sprite {
     display: inline-block;
+    position: relative;
     background-image: url('/assets/images/sprites.png');
     background-repeat: no-repeat;
     background-size: 1024px 1024px;

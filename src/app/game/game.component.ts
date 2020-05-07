@@ -48,6 +48,10 @@ export class GameComponent implements OnInit {
     event.target.appendChild(nodeCopy);
   }
 
+  setLocation(key: string): void {
+    this.heroService.setCurrentLocation(key);
+  }
+
   use(): void {
     let dropArea = document.getElementById('item-drop-area');
     let items = [];
