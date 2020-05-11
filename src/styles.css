@@ -9,6 +9,7 @@
 html, body {
   font-family: 'Roboto', sans-serif;
   width: 100%;
+  min-width: 400px;
   padding: 0;
   margin: 0;
   color: var(--color-4);
@@ -230,13 +231,16 @@ h2 {
 .modal .alert {
   margin: 1rem;
   padding: 1rem;
-  text-align: center;
   background-color: var(--color-1);
   border-radius: 3px;
 }
 
 .modal .alert p {
   margin-bottom: 1rem;
+}
+
+.modal .alert .alert-action {
+  margin-top: 1rem;
 }
 
 .navbar-fixed nav {
@@ -303,7 +307,7 @@ footer img {
 }
 
 .options .btn {
-  width:100px;
+  width:150px;
 }
 
 .item-drop-area {
@@ -325,19 +329,36 @@ footer img {
   font-size: 11px;
 }
 
-.items ul {
-  list-style: none;
+ul.list {
+  columns: 2;
+  margin-bottom: 1rem;
 }
 
-.items ul li {
-  display: inline-block;
+ul.list li {
+  margin-bottom: 2px;
+  break-inside: avoid;
 }
 
-.items .sprite-container {
-  border: 2px solid var(--color-4);
-  padding: 2px;
-  border-radius: 3px;
-  margin: 2px;
+.locations ul li.active {
+  background-color: var(--color-2);
+}
+
+ul.list li .title {
+  display: flex;
+  align-items: center;
+}
+
+ul.list li .description {
+  position: absolute;
+  border: 1px solid var(--color-4);
+  background-color: var(--color-1);
+  padding: 3px;
+  font-size: 80%;
+  z-index: 1000;
+}
+
+ul.list .sprite-container {
+  margin-right: 4px;
 }
 
 .sprite-container {
@@ -379,15 +400,7 @@ footer img {
   opacity: 1;
 }
 
-.locations ul li {
-  display: flex;
-  align-items: center;
-  padding: 2px 0;
-}
 
-.locations ul li.active {
-  background-color: var(--color-2);
-}
 
 .navbar-fixed nav {
 	padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);

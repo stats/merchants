@@ -8,7 +8,7 @@ import { Input, Component, OnInit } from '@angular/core';
 export class SpriteComponent implements OnInit {
 
     @Input() key: string;
-    @Input() tooltip: string;
+    @Input() draggable: boolean = false;
 
     showTooltip: boolean = false;
 
@@ -18,15 +18,7 @@ export class SpriteComponent implements OnInit {
     
     drag(event) {
         event.dataTransfer.setData("text", event.target.id);
-        this.showTooltip = false;
-    }
 
-    hoverStart(event) {
-        this.showTooltip = true;
-    }
-
-    hoverEnd(event) {
-        this.showTooltip = false;
     }
 
     constructor() { }

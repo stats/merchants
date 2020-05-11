@@ -1,0 +1,17 @@
+<ul class="list">
+    <li *ngFor="let item of items | keyvalue" 
+        (mouseenter)="hoverStart(item.key)" 
+        (mouseleave)="hoverEnd()"
+        (click)="click(item.key)"
+        [class.active]="item.key == currentKey">
+        <div class="title">
+            <app-sprite key="{{item.key}}" [draggable]="draggable"></app-sprite>
+            <span>
+                {{item.value.name}}
+                <span class="description" *ngIf="show(item.key) && item.value.description != ''">{{item.value.description}}</span>
+            </span>
+        </div>
+        
+    </li>
+</ul>
+

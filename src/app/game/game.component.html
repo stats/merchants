@@ -6,6 +6,11 @@
   <div class="description">
     {{currentLocation.description}}
   </div>
+
+  <div class="location-items">
+    <h3>Location Items</h3>
+    <app-list [items]="currentLocation.getItems()" draggable="true"></app-list>
+  </div>
 </div>
 
 <div class="actions">
@@ -13,49 +18,37 @@
   <div id="item-drop-area" class="item-drop-area" droppable="true" (drop)="onDrop($event)" (dragover)="allowDrop($event)"><p>Drop items to craft or use here</p></div>
 
   <div class="options">
-    <button type="button" class="btn" (click)="use()">Use</button>
+    <button type="button" class="btn" (click)="combine()">Use / Craft</button>
     <button type="button" class="btn" (click)="clear()">Clear</button>
-    <button type="button" class="btn" (click)="craft()">Craft</button>
   </div>
 
 </div>
 
 <div class="items">
   <h3>Items</h3>
-  <ul>
-    <li *ngFor="let item of currentHero.getItems() | keyvalue">
-      <app-sprite key="{{item.key}}" tooltip="{{item.value.name}} - {{item.value.description}}"></app-sprite>
-    </li>
-  </ul>
+  <app-list [items]="currentHero.getItems()" draggable="true"></app-list>
 </div>
 
 <div class="locations">
   <h3>Locations</h3>
-  <ul >
-    <li (click)="setLocation(location.key)" *ngFor="let location of currentHero.getLocations() | keyvalue" [class.active]="location.key == currentLocationKey">
-      <app-sprite key="{{location.key}}"></app-sprite> - {{location.value.name}}
-    </li>
-  </ul>
+  <app-list [items]="currentHero.getLocations()" [currentKey]="currentLocationKey" setLocation="true"></app-list>
 </div>
 
 <div class="modal" *ngIf="showAlert">
   <div class="alert">
     <p>{{alertText}}</p>
-    <div *ngIf="alertItems">
-      <ul>
-        <li *ngFor="let item of alertItems | keyvalue">
-          <app-sprite key="{{item.key}}" tooltip="{{item.value.name}} - {{item.value.description}}"></app-sprite>
-        </li>
-      </ul>
+    <div *ngIf="alertItemsTried">
+      <app-list [items]="alertItemsTried"></app-list>
     </div>
-    <div *ngIf="alertLocations">
-      <ul >
-        <li *ngFor="let location of alertLocations | keyvalue">
-          <app-sprite key="{{location.key}}"></app-sprite> - {{location.value.name}}
-        </li>
-      </ul>
+    <div *ngIf="alertItems" class="items">
+      <h3>Items Found / Crafted</h3>
+      <app-list [items]="alertItems"></app-list>
     </div>
-    <div>
+    <div *ngIf="alertLocations" class="locations">
+      <h3>Locations Found</h3>
+      <app-list [items]="alertLocations"></app-list>
+    </div>
+    <div class="alert-action">
       <button type="button" class="btn" (click)="hideAlert()">{{buttonText}}</button>
     </div>
   </div>

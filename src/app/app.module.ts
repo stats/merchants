@@ -13,6 +13,7 @@ import { GameComponent } from './game/game.component';
 
 
 import { HeroService } from './heroes/hero.service';
+import { ListComponent } from './common/list/list.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HeroService } from './heroes/hero.service';
     SpriteComponent,
     HeroListComponent,
     GameComponent,
+    ListComponent,
   ],
   imports: [
     BrowserModule,

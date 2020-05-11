@@ -3,9 +3,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { Hero, IHero } from '@models/hero.model';
-import { ILocation } from '@models/location.model';
+import { ILocation, Location } from '@models/location.model';
 import { IItem } from '@models/item.model';
-import { IAction } from '@models/action.model';
 import { IRecipe } from '@models/recipe.model';
 
 import { Locations, Recipes, Items } from '../data/game-data';
@@ -18,7 +17,7 @@ export class HeroService {
   private currentLocationKey: string;
 
   public currentHero$: BehaviorSubject<Hero>;
-  public currentLocation$: BehaviorSubject<ILocation>;
+  public currentLocation$: BehaviorSubject<Location>;
 
   constructor() {
     this.heroes = JSON.parse(localStorage.getItem('heroes'));
@@ -34,15 +33,16 @@ export class HeroService {
 
     this.currentHeroIndex = parseInt(localStorage.getItem('currentHeroIndex'));
     this.currentHero$ = new BehaviorSubject<Hero>(this.currentHero);
-    this.currentLocationKey = 'cusp_of_adventure';
-    this.currentLocation$ = new BehaviorSubject<ILocation>(this.currentLocation);
+    this.currentLocationKey = localStorage.getItem('currentLocationKey');
+    if(!this.currentLocationKey) this.currentLocationKey = 'cusp_of_adventure';
+    this.currentLocation$ = new BehaviorSubject<Location>(this.currentLocation);
   }
 
   createHero(name: string) {
     let hero: Hero = new Hero({
       name: name,
       locations: ['cusp_of_adventure'],
-      items: ['travelers_boots', 'spyglass']
+      items: []
     });
 
     this.heroes.push(hero);
@@ -50,6 +50,7 @@ export class HeroService {
     this.currentHeroIndex = this.heroes.length - 1;
 
     this.currentHero$.next(hero);
+    this.setCurrentLocation('cusp_of_adventure');
 
     this.saveHeroes();
   }
@@ -75,8 +76,8 @@ export class HeroService {
     return this.heroes;
   }
 
-  get currentLocation(): ILocation {
-    return Locations[this.currentLocationKey];
+  get currentLocation(): Location {
+    return new Location(Locations[this.currentLocationKey]);
   }
 
   getCurrentLocationKey(): string {
@@ -95,7 +96,8 @@ export class HeroService {
 
   setCurrentLocation(key: string) {
     this.currentLocationKey = key;
-    this.currentLocation$.next(Locations[key]);
+    this.currentLocation$.next(new Location(Locations[key]));
+    localStorage.setItem('currentLocationKey', this.currentLocationKey);
   }
 
   getLocations(keys: string[]): any {
@@ -121,28 +123,23 @@ export class HeroService {
   }
 
   getItem(key: string): IItem {
-    return Items[key];
-  }
-
-  use(items: string[]): IAction {
-    console.log(this.currentLocation);
-    for(let action of this.currentLocation.actions) {
-      if( this.isEqual(items, action.items)) {
-        this.currentHero.addItems(action.rewards);
-        this.currentHero.addLocations(action.unlockLocations);
-        this.currentHero.removeLocations(action.removeLocations);
-        if(action.moveToLocation) this.setCurrentLocation(action.moveToLocation);
-        this.saveHeroes();
-        return action;
+    let item = Items[key];
+    if(item == undefined) {
+      item  = {
+        name: key.replace('_', ' '),
+        description: ''
       }
     }
-    return null;
+    return item;
   }
 
   craft(items: string[]): IRecipe {
     for(let recipe of Recipes) {
       if( this.isEqual(items, recipe.items) ) {
         this.currentHero.addItems(recipe.rewards);
+        this.currentHero.addLocations(recipe.unlockLocations);
+        this.currentHero.removeLocations(recipe.removeLocations);
+        if(recipe.moveToLocation) this.setCurrentLocation(recipe.moveToLocation);
         this.saveHeroes();
         return recipe;
       }

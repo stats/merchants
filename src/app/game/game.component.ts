@@ -3,8 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { HeroService } from '../heroes/hero.service';
 import { Hero } from '@models/hero.model';
-import { ILocation } from '@models/location.model';
-import { IAction } from '@models/action.model';
+import { Location } from '@models/location.model';
 import { IRecipe } from '@models/recipe.model';
 import { IItem } from '@models/item.model';
 
@@ -16,10 +15,11 @@ import { IItem } from '@models/item.model';
 export class GameComponent implements OnInit {
 
   public currentHero: Hero;
-  public currentLocation: ILocation;
+  public currentLocation: Location;
   public currentLocationKey: string;
 
   public alertText = "";
+  public alertItemsTried: any;
   public alertItems: any;
   public alertLocations: any;
   public buttonText = "Ok";
@@ -32,6 +32,7 @@ export class GameComponent implements OnInit {
     this.heroService.currentLocation$.subscribe(location => {
       this.currentLocation = location;
       this.currentLocationKey = this.heroService.getCurrentLocationKey();
+      console.log(this.currentLocation);
     })
   }
 
@@ -60,14 +61,15 @@ export class GameComponent implements OnInit {
     this.heroService.setCurrentLocation(key);
   }
 
-  setAlertAndShow(text: string, items: any = null, locations: any = null ) {
+  setAlertAndShow(text: string, items: any = null, locations: any = null, itemsTried: any = null ) {
     this.alertText = text;
     this.alertItems = items;
     this.alertLocations = locations;
+    this.alertItemsTried = itemsTried;
     this.showAlert = true;
   }
 
-  use(): void {
+  combine(): void {
     let dropArea = document.getElementById('item-drop-area');
     let items = [];
     dropArea.childNodes.forEach((child) => {
@@ -75,36 +77,19 @@ export class GameComponent implements OnInit {
         items.push( (child["id"] as string).substring(6));
       }
     });
-    let used: IAction = this.heroService.use(items);
-    if(used) {
-      this.setAlertAndShow(
-        used.description,
-        this.heroService.getItems(used.rewards),
-        this.heroService.getLocations(used.unlockLocations)
-      );
-    } else {
-      this.setAlertAndShow("You could not use those items here.");
-    }
-    this.clear();
-  }
 
-  craft(): void {
-    let dropArea = document.getElementById('item-drop-area');
-    let items = [];
-    dropArea.childNodes.forEach((child) => {
-      if(child.nodeName == "SPAN") {
-        items.push( (child["id"] as string).substring(6));
-      }
-    });
     let crafted: IRecipe = this.heroService.craft(items);
+    console.log(crafted);
     if(crafted) {
       this.setAlertAndShow(
         crafted.description,
-        this.heroService.getItems(crafted.rewards)
+        this.heroService.getItems(crafted.rewards),
+        this.heroService.getLocations(crafted.unlockLocations),
       );
     } else {
-      this.setAlertAndShow("You could not craft those items.");
+      this.setAlertAndShow("Nothing happenned when you tried to craft", null, null, this.heroService.getItems(items));
     }
+
     this.clear();
   }
 

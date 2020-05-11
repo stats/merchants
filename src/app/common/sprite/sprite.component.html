@@ -1,13 +1,9 @@
 <div class="sprite-container">
-    <span class="sprite-tooltip"
-        [class.show]="showTooltip" *ngIf="tooltip != null">{{tooltip}}</span>
     <span 
         id="{{key}}" 
         class="sprite {{key}}" 
-        draggable="true" 
+        [draggable]="draggable" 
         (dragover)="allowDrop($event)" 
-        (dragstart)="drag($event)"
-        (mouseenter)="hoverStart($event)"
-        (mouseleave)="hoverEnd($event)">
+        (dragstart)="drag($event)">
     </span>
 </div>

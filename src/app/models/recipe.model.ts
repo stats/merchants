@@ -1,5 +1,8 @@
 export interface IRecipe {
   items: string[];
-  rewards: string[];
-  description: string;
+  description?: string;
+  rewards?: string[];
+  unlockLocations?: string[];
+  removeLocations?: string[];
+  moveToLocation?: string;
 }

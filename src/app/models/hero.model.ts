@@ -16,8 +16,27 @@ export class Hero implements IHero {
   locations:string[];
   items:string[]
 
+  cachedItems:IItem[];
+
   constructor(opts?: IHero) {
-    merge(this, opts)
+    merge(this, opts);
+
+    this.updateCachedItems();
+
+  }
+
+  updateCachedItems() {
+    this.cachedItems = [];
+    for(let item of this.items) {
+      this.cachedItems[item] = Items[item];
+      if(this.cachedItems[item] == undefined) {
+        console.log(item, 'is undefined');
+        this.cachedItems[item] = {
+          name: item.replace('_',' '),
+          description: ''
+        }
+      }
+    }
   }
 
   hasLocation(key: string): boolean {
@@ -72,14 +91,11 @@ export class Hero implements IHero {
   addItem(key: string): void {
     if(this.hasItem(key)) return;
     this.items.push(key);
+    this.updateCachedItems();
   }
 
   getItems(): any {
-    let items: any = {};
-    for(let item of this.items) {
-      items[item] = Items[item];
-    }
-    return items;
+    return this.cachedItems;
   }
 
 }
